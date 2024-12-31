@@ -229,109 +229,49 @@ const HeroSection = () => {
         >
           {/* Define colored areas */}
           <defs>
-            <linearGradient id="gradient" x1="100%" y1="100%" x2="0%" y2="0%">
+            <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="20%" stopColor="#040F16" />
               <stop offset="60%" stopColor="#06242E" />
               <stop offset="100%" stopColor="#073845" />
             </linearGradient>
-            <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+            <linearGradient id="gradient2" x1="100%" y1="100%" x2="0" y2="0">
               <stop offset="20%" stopColor="#040F16" />
               <stop offset="60%" stopColor="#06242E" />
               <stop offset="100%" stopColor="#073845" />
             </linearGradient>
           </defs>
 
-          <svg
-            width="100%"
-            height="100%"
-            xmlns="http://www.w3.org/2000/svg"
-            style={{ position: "absolute", top: 0, left: 0 }}
-          >
-            <path
-              d={`M ${isMobile ? 0 : window.innerWidth * 0.1} ${
-                isMobile ? 150 : 0
-              } L ${relX} ${relY} L ${isMobile ? 0 : window.innerWidth * 0} ${
-                isMobile ? window.innerHeight * 0.7 : window.innerHeight - 50
-              } Z`}
-              fill="url(#gradient)"
-              stroke="#0A5D8F"
-              className="dynamic-path"
-            />
-          </svg>
-          <svg
-            width="100%"
-            height="100vh"
-            xmlns="http://www.w3.org/2000/svg"
-            style={{ position: "absolute", top: 0, left: 0 }}
-          >
-            <path
-              d={`M ${relX} ${relY} 
-              L ${window.innerWidth - 0} ${
-                isMobile ? window.innerHeight * 0.2 : window.innerHeight * 0.1
-              } 
-              L 191 ${
-                isMobile ? window.innerHeight * 0.2 : window.innerHeight * 0.001
-              } 
-              Z`}
-              // fill="url(#gradient)"
-              fill="url(#gradient)"
-              stroke="#0A5D8F "
-              strokeWidth="1"
-              className="dynamic-path"
-            />
-          </svg>
-          <svg
-            width="100%"
-            height="100vh"
-            xmlns="http://www.w3.org/2000/svg"
-            style={{ position: "absolute", top: 0, left: 0 }}
-          >
-            <path
-              d={`M ${window.innerWidth - 0} ${
-                isMobile ? window.innerHeight * 0.2 : window.innerHeight * 0.1
-              } 
-            L ${window.innerWidth - 130} ${
-                isMobile ? window.innerHeight * 0.7 : window.innerHeight
-              } 
-            L ${relX} ${relY} 
-            Z`} // The first and second points are fixed to the right edge, third point follows the cursor
-              fill="url(#gradient2)" // Apply your gradient
-              stroke="#0A5D8F"
-              strokeWidth="1"
-              className="dynamic-path"
-            />
-          </svg>
-
-          <svg
-            width="100%"
-            height="100vh"
-            xmlns="http://www.w3.org/2000/svg"
-            style={{ position: "absolute", top: 0, left: 0 }}
-          >
-            <path
-              d={`M ${relX} ${relY}  L ${
-                isMobile ? 0 : window.innerWidth * 0.001
-              } ${
-                isMobile ? window.innerHeight * 0.7 : window.innerHeight * 0.945
-              } L  ${window.innerWidth - 130} ${
-                isMobile ? window.innerHeight * 0.7 : window.innerHeight
-              }  Z`}
-              fill="url(#gradient2)" // Apply your gradient
-              stroke="#0A5D8F"
-              strokeWidth="1"
-              className="dynamic-path"
-            />
-          </svg>
+          {/* Apply gradients to polygons */}
+          {/* <polygon
+          className="polygon"
+          points={`0,0 ${relX},${relY} 0,${window.innerHeight}`}
+          fill="url(#gradient2)"
+        />
+        <polygon
+          className="polygon2"
+          points={`0,0 ${relX},${relY} ${window.innerWidth},0`}
+          fill="url(#gradient2)"
+        />
+        <polygon
+          className="polygon3"
+          points={`${relX},${relY} ${window.innerWidth},0 ${window.innerWidth},${window.innerHeight}`}
+          fill="url(#gradient)"
+        />
+        <polygon
+          className="polygon4"
+          points={`0,${window.innerHeight} ${relX},${relY} ${window.innerWidth},${window.innerHeight}`}
+          fill="url(#gradient)"
+        /> */}
 
           {/* Draw dynamic lines */}
           <line
             className="line"
             x1={isMobile ? "0" : "10%"}
-            y1={isMobile ? "50" : "0"}
+            y1={isMobile ? "150" : "0"}
             x2={relX}
             y2={relY}
             stroke="#0A5D8F"
-            strokeWidth="0"
+            strokeWidth="1"
           />
           <line
             className="line"
@@ -339,8 +279,8 @@ const HeroSection = () => {
             y1={isMobile ? "20%" : "10%"}
             x2={relX}
             y2={relY}
-            stroke="red"
-            strokeWidth="0"
+            stroke="#0A5D8F"
+            strokeWidth="1"
           />
           <line
             className="line"
@@ -348,8 +288,8 @@ const HeroSection = () => {
             y1="100%"
             x2={relX}
             y2={relY}
-            stroke="green"
-            strokeWidth="0"
+            stroke="#0A5D8F"
+            strokeWidth="1"
           />
           <line
             className="line"
@@ -357,8 +297,8 @@ const HeroSection = () => {
             y1={isMobile ? "70%" : "100%"}
             x2={relX}
             y2={relY}
-            stroke="red"
-            strokeWidth="0"
+            stroke="#0A5D8F"
+            strokeWidth="1"
           />
 
           {/* Render text with clipping */}
