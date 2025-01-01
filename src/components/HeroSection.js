@@ -115,8 +115,8 @@ const HeroSection = () => {
           src={Icon}
           alt="Top Left Icon"
           style={{
-            width: "22px", // Adjust size as needed
-            height: "21px",
+            width: "56.84px", // Adjust size as needed
+            height: "47.5px",
           }}
         />
         <span
@@ -124,7 +124,7 @@ const HeroSection = () => {
             marginLeft: "8px", // Space between icon and text
             fontFamily: "lato",
             color: "#E2CAA2",
-            fontSize: "0.9rem",
+            fontSize: "20px",
           }}
         >
           E - D - A
@@ -138,21 +138,23 @@ const HeroSection = () => {
           right: "20px",
           display: "flex",
           gap: "20px",
+
           zIndex: 1000,
           color: "#E2CAA2",
-          fontSize: "10px",
+          lineHeight: "19.2px",
+          fontSize: "16px",
           fontFamily: "lato",
         }}
       >
         {["DE", "EN", "AR"].map((lang) => (
           <span
             key={lang}
-            onMouseEnter={() => setHoveringText(true)}
-            onMouseLeave={() => setHoveringText(false)}
+            // onMouseEnter={() => setHoveringText(true)}
+            // onMouseLeave={() => setHoveringText(false)}
             onClick={() => setSelectedLanguage(lang)}
             style={{
               cursor: "pointer",
-              fontWeight: selectedLanguage === lang ? "bold" : "normal",
+              fontWeight: selectedLanguage === lang ? "900" : "300",
             }}
           >
             {lang}
@@ -163,25 +165,27 @@ const HeroSection = () => {
         className="language-selector2"
         style={{
           position: "absolute",
-          bottom: "30px", // Position it at the bottom
+          bottom: "50px", // Position it at the bottom
           right: "20px", // Position it at the right
           display: "flex",
           gap: "30px", // Space between language options
+          fontWeight: "300",
           zIndex: 1000,
           color: "#E2CAA2",
-          fontSize: "12px",
+          lineHeight: "19.2px",
+          fontSize: "16px",
           fontFamily: "lato",
         }}
       >
         {["IMPRESSUM", "AGB", "DATENSCHUTZ"].map((lang) => (
           <span
             key={lang}
-            onMouseEnter={() => setHoveringText(true)} // Set hover state
-            onMouseLeave={() => setHoveringText(false)} // Reset hover state
+            // onMouseEnter={() => setHoveringText(true)} // Set hover state
+            // onMouseLeave={() => setHoveringText(false)} // Reset hover state
             onClick={() => setSelectedWork(lang)} // Update selected language
             style={{
               cursor: "pointer",
-              fontWeight: selectedWork === lang ? "bold" : "normal",
+              fontWeight: selectedWork === lang ? "900" : "300",
             }}
           >
             {lang}
@@ -192,12 +196,15 @@ const HeroSection = () => {
         className="bottom-text"
         style={{
           position: "absolute",
-          bottom: "20px",
+          bottom: "50px",
           left: "50%",
           transform: "translateX(-50%)",
           textAlign: "center",
           color: "#E2CAA2",
-          fontSize: "12px",
+          fontSize: "20px",
+          display: "flex",
+          flexDirection: "column",
+          gap: "14px",
           fontWeight: "900",
           lineHeight: "24px",
           letterSpacing: "0.06em",
@@ -212,7 +219,8 @@ const HeroSection = () => {
           style={{
             fontWeight: "900",
             textTransform: "uppercase",
-            fontSize: "10px",
+            fontSize: "14px",
+            lineHeight: "16.8px",
             fontFamily: "lato",
           }}
         >
@@ -229,18 +237,21 @@ const HeroSection = () => {
         >
           {/* Define colored areas */}
           <defs>
-            <linearGradient id="gradient" x1="100%" y1="100%" x2="0%" y2="0%">
+            <linearGradient id="gradient1" x1="100%" y1="100%" x2="0%" y2="0%">
+              <stop offset="10%" stopColor="#040F16" />
+              <stop offset="100%" stopColor="#073845" />
+            </linearGradient>
+            <linearGradient id="gradient2" x1="100%" y1="100%" x2="20%" y2="0%">
               <stop offset="20%" stopColor="#040F16" />
               <stop offset="60%" stopColor="#06242E" />
               <stop offset="100%" stopColor="#073845" />
             </linearGradient>
-            <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+            <linearGradient id="gradient3" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="20%" stopColor="#040F16" />
               <stop offset="60%" stopColor="#06242E" />
               <stop offset="100%" stopColor="#073845" />
             </linearGradient>
           </defs>
-
           <svg
             width="100%"
             height="100%"
@@ -248,77 +259,62 @@ const HeroSection = () => {
             style={{ position: "absolute", top: 0, left: 0 }}
           >
             <path
-              d={`M ${isMobile ? 0 : window.innerWidth * 0.1} ${
-                isMobile ? 150 : 0
-              } L ${relX} ${relY} L ${isMobile ? 0 : window.innerWidth * 0} ${
+              d={`M 0 0 L ${window.innerHeight * 0.3} 0 L ${relX} ${relY} L 0 ${
                 isMobile ? window.innerHeight * 0.7 : window.innerHeight - 50
               } Z`}
-              fill="url(#gradient)"
+              fill="url(#gradient1)"
               stroke="#0A5D8F"
               className="dynamic-path"
             />
           </svg>
           <svg
             width="100%"
-            height="100vh"
+            height="100%"
             xmlns="http://www.w3.org/2000/svg"
             style={{ position: "absolute", top: 0, left: 0 }}
           >
             <path
-              d={`M ${relX} ${relY} 
-              L ${window.innerWidth - 0} ${
-                isMobile ? window.innerHeight * 0.2 : window.innerHeight * 0.1
-              } 
-              L 191 ${
-                isMobile ? window.innerHeight * 0.2 : window.innerHeight * 0.001
-              } 
-              Z`}
-              // fill="url(#gradient)"
-              fill="url(#gradient)"
-              stroke="#0A5D8F "
-              strokeWidth="1"
+              d={`M ${relX} ${relY} L ${window.innerWidth - 0} 150 L ${
+                window.innerWidth - 0
+              } 0 L ${window.innerHeight * 0.21} 0 Z`}
+              fill="url(#gradient2)"
+              // fill="gray"
+              stroke="#0A5D8F"
               className="dynamic-path"
             />
           </svg>
           <svg
             width="100%"
-            height="100vh"
+            height="100%"
             xmlns="http://www.w3.org/2000/svg"
             style={{ position: "absolute", top: 0, left: 0 }}
           >
             <path
-              d={`M ${window.innerWidth - 0} ${
-                isMobile ? window.innerHeight * 0.2 : window.innerHeight * 0.1
-              } 
-            L ${window.innerWidth - 130} ${
-                isMobile ? window.innerHeight * 0.7 : window.innerHeight
-              } 
-            L ${relX} ${relY} 
-            Z`} // The first and second points are fixed to the right edge, third point follows the cursor
-              fill="url(#gradient2)" // Apply your gradient
+              d={`M ${window.innerWidth - 0} 150 L ${window.innerWidth - 0} ${
+                window.innerHeight - 0
+              } L ${window.innerWidth * 0.124} ${window.innerHeight}
+               L ${relX} ${relY} Z `}
+              fill="url(#gradient3)"
+              // fill="gray"
               stroke="#0A5D8F"
-              strokeWidth="1"
               className="dynamic-path"
             />
           </svg>
-
           <svg
             width="100%"
-            height="100vh"
+            height="100%"
             xmlns="http://www.w3.org/2000/svg"
             style={{ position: "absolute", top: 0, left: 0 }}
           >
             <path
-              d={`M ${relX} ${relY}  L ${
-                isMobile ? 0 : window.innerWidth * 0.001
-              } ${
-                isMobile ? window.innerHeight * 0.7 : window.innerHeight * 0.945
-              } L  ${window.innerWidth - 130} ${
-                isMobile ? window.innerHeight * 0.7 : window.innerHeight
-              }  Z`}
-              fill="url(#gradient2)" // Apply your gradient
+              d={`M ${relX} ${relY} L ${window.innerWidth * 0.85} ${
+                window.innerHeight - 0
+              } L 0 ${window.innerHeight - 0} L 0 ${
+                window.innerHeight * 0.94
+              } Z`}
+              fill="url(#gradient3)"
+              // fill="yellow"
               stroke="#0A5D8F"
-              strokeWidth="1"
               className="dynamic-path"
             />
           </svg>
@@ -330,7 +326,7 @@ const HeroSection = () => {
             y1={isMobile ? "50" : "0"}
             x2={relX}
             y2={relY}
-            stroke="#0A5D8F"
+            stroke="green"
             strokeWidth="0"
           />
           <line
@@ -353,8 +349,8 @@ const HeroSection = () => {
           />
           <line
             className="line"
-            x1={isMobile ? "0%" : "10%"}
-            y1={isMobile ? "70%" : "100%"}
+            x1={isMobile ? "0%" : "0%"}
+            y1={isMobile ? "70%" : "94%"}
             x2={relX}
             y2={relY}
             stroke="red"
@@ -388,15 +384,17 @@ const HeroSection = () => {
           <text
             className="text-vision"
             x="50%"
-            y="40%"
+            y="38%"
             textAnchor="middle"
             dominantBaseline="middle"
             fontWeight="400"
             fill="#E2CAA2"
             style={{
-              lineHeight: "10px",
+              lineHeight: "19.2px",
               letterSpacing: "0.26em",
               textAlign: "left",
+              fontSize: "16px",
+
               textUnderlinePosition: "from-font",
               textDecorationSkipInk: "none",
             }}
@@ -410,11 +408,11 @@ const HeroSection = () => {
             y="50%"
             textAnchor="middle"
             dominantBaseline="middle"
-            fontSize="95px"
+            fontSize="200px"
             fontFamily="lato"
             fontWeight="bold"
             fill="#E2CAA2"
-            style={{ clipPath: "url(#red-clip)" }}
+            style={{ clipPath: "url(#red-clip)", lineHeight: "240px" }}
           >
             space
           </text>
@@ -424,13 +422,13 @@ const HeroSection = () => {
             y="50%"
             textAnchor="middle"
             dominantBaseline="middle"
-            fontSize="95px"
+            fontSize="200px"
             fontWeight="bold"
             fill="transparent"
             stroke="#E2CAA2"
             strokeWidth="2"
             fontFamily="lato"
-            style={{ clipPath: "url(#green-clip)" }}
+            style={{ clipPath: "url(#green-clip)", lineHeight: "240px" }}
           >
             space
           </text>
@@ -440,12 +438,12 @@ const HeroSection = () => {
             y="50%"
             textAnchor="middle"
             dominantBaseline="middle"
-            fontSize="95px"
+            fontSize="200px"
             fontWeight="bold"
             fill="#E2CAA2"
             strokeWidth="2"
             fontFamily="lato"
-            style={{ clipPath: "url(#yellow-clip)" }}
+            style={{ clipPath: "url(#yellow-clip)", lineHeight: "240px" }}
           >
             space
           </text>
@@ -455,12 +453,12 @@ const HeroSection = () => {
             y="50%"
             textAnchor="middle"
             dominantBaseline="middle"
-            fontSize="95px"
+            fontSize="200px"
             fontWeight="bold"
             fill="transparent"
             stroke="#E2CAA2"
             fontFamily="lato"
-            style={{ clipPath: "url(#blue-clip)" }}
+            style={{ clipPath: "url(#blue-clip)", lineHeight: "240px" }}
           >
             space
           </text>
