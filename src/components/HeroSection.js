@@ -6,8 +6,8 @@ const HeroSection = () => {
   const isMobile = useMediaQuery({
     query: "(max-width: 768px)",
   });
-  console.log("isMobile", isMobile);
-  const [relX, setRelX] = useState(isMobile ? 250 : 600); // Initial X position
+ 
+  const [relX, setRelX] = useState(isMobile ? 250 : 600);  
   const [relY, setRelY] = useState(300);
   const [selectedLanguage, setSelectedLanguage] = useState("EN");
   const [selectedWork, setSelectedWork] = useState("AGB"); // Default selected language
@@ -266,6 +266,7 @@ const HeroSection = () => {
               stroke="#0A5D8F"
               className="dynamic-path"
             />
+            
           </svg>
           <svg
             width="100%"
@@ -438,11 +439,11 @@ const HeroSection = () => {
             y="50%"
             textAnchor="middle"
             dominantBaseline="middle"
-            fontSize="200px"
             fontWeight="bold"
             fill="#E2CAA2"
             strokeWidth="2"
             fontFamily="lato"
+            fontSize="200px"
             style={{ clipPath: "url(#yellow-clip)", lineHeight: "240px" }}
           >
             space
