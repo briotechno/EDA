@@ -3,8 +3,7 @@ import gsap from "gsap/all";
 import React, { useEffect, useState } from "react";
 import { useMediaQuery } from "react-responsive";
 import Icon from "../assets/icon.png";
-import VisionImage from "../assets/vision.png";  // Impo
-
+import VisionImage from "../assets/vision.png"; // Impo
 
 // DynamicPolygon component
 const DynamicPolygon = ({
@@ -19,8 +18,6 @@ const DynamicPolygon = ({
   fill,
   imageSrc, // Add image source as a prop
 }) => {
-
-
   // Create the points string for the polygon
   const createPolygonPoints = () => {
     return `${topLeftX},${topLeftY} ${topRightX},${topRightY} ${bottomRightX},${bottomRightY} ${bottomLeftX},${bottomLeftY}`;
@@ -46,8 +43,6 @@ const DynamicPolygon = ({
     ));
   };
 
-
-
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -65,11 +60,11 @@ const DynamicPolygon = ({
       {imageSrc && (
         <image
           href={imageSrc}
-          x="27%"
+          x="33%"
           y="43%"
           transform="translate(-50%, -50%)"
-          width="50%"
-          height="25%"
+          width="40%"
+          height="20%"
         />
       )}
 
@@ -125,7 +120,6 @@ const HeroSection2 = () => {
       alignItems="center"
       sx={{ cursor: "none", overflow: "hidden" }}
     >
-
       <div
         style={{
           display: "flex",
@@ -140,8 +134,8 @@ const HeroSection2 = () => {
           src={Icon}
           alt="Top Left Icon"
           style={{
-            width: "16px", // Adjust size as needed
-            height: "15px",
+            width: "56px", // Adjust size as needed
+            height: "47px",
           }}
         />
         <span
@@ -149,7 +143,7 @@ const HeroSection2 = () => {
             marginLeft: "8px", // Space between icon and text
 
             color: "#E2CAA2",
-            fontSize: "0.5rem",
+            fontSize: "1.2rem",
           }}
         >
           E - D - A
@@ -165,7 +159,7 @@ const HeroSection2 = () => {
           gap: "20px",
           zIndex: 1000,
           color: "#E2CAA2",
-          fontSize: "8px",
+          fontSize: "16px",
         }}
       >
         {["DE", "EN", "AR"].map((lang) => (
@@ -176,7 +170,7 @@ const HeroSection2 = () => {
             onClick={() => setSelectedLanguage(lang)}
             style={{
               cursor: "pointer",
-              fontWeight: selectedLanguage === lang ? "bold" : "normal",
+              fontWeight: selectedLanguage === lang ? "bold" : "300",
             }}
           >
             {lang}
@@ -187,24 +181,26 @@ const HeroSection2 = () => {
         className="language-selector2"
         style={{
           position: "absolute",
-          bottom: "20px",  // Position it at the bottom
-          right: "20px",   // Position it at the right
+          bottom: "30px", // Position it at the bottom
+          right: "20px", // Position it at the right
           display: "flex",
-          gap: "30px",     // Space between language options
+          gap: "30px", // Space between language options
           zIndex: 1000,
           color: "#E2CAA2",
-          fontSize: "8px",
+          fontSize: "16px",
+          fontWeight:300,
+        
         }}
       >
         {["IMPRESSUM", "AGB", "DATENSCHUTZ"].map((lang) => (
           <span
             key={lang}
-            onMouseEnter={() => setHoveringText(true)}  // Set hover state
-            onMouseLeave={() => setHoveringText(false)}  // Reset hover state
-            onClick={() => setSelectedWork(lang)}  // Update selected language
+            onMouseEnter={() => setHoveringText(true)} // Set hover state
+            onMouseLeave={() => setHoveringText(false)} // Reset hover state
+            onClick={() => setSelectedWork(lang)} // Update selected language
             style={{
               cursor: "pointer",
-              fontWeight: selectedWork === lang ? "bold" : "normal",
+              fontWeight: selectedWork === lang ? "bold" : "300",
             }}
           >
             {lang}
@@ -215,14 +211,14 @@ const HeroSection2 = () => {
         className="bottom-text"
         style={{
           position: "absolute",
-          bottom: "10px",
+          bottom: "20px",
           left: "50%",
           transform: "translateX(-50%)",
           textAlign: "center",
           color: "#E2CAA2",
-          fontSize: "8px",
+          fontSize: "12px",
           fontWeight: "900",
-          lineHeight: "18px",
+          lineHeight: "24px",
           letterSpacing: "0.06em",
           textUnderlinePosition: "from-font",
           textDecorationSkipInk: "none",
@@ -234,25 +230,24 @@ const HeroSection2 = () => {
           style={{
             fontWeight: "900",
             textTransform: "uppercase",
-            fontSize: "6px",
+            fontSize: "10px",
           }}
         >
           TO START
         </div>
-        
       </div>
       <img
-          src={VisionImage}
-          alt="Vision Image"
-          style={{
-            position: "absolute",
-            top: "calc(50% - 50px)", // Adjust position as needed
-            left: "52%",
-            transform: "translateX(-50%)",
-            width: "15%", // Adjust size as needed
-            zIndex: 500,
-          }}
-        />
+        src={VisionImage}
+        alt="Vision Image"
+        style={{
+          position: "absolute",
+          top: "calc(40% - 50px)", // Adjust position as needed
+          left: "52%",
+          transform: "translateX(-50%)",
+          width: "15%", // Adjust size as needed
+          zIndex: 500,
+        }}
+      />
       <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100vh">
         <defs>
           {/* Gradient Definitions */}
@@ -358,7 +353,6 @@ const style = {
     color: "transparent",
     WebkitTextStroke: "2px #E2CAA2",
     textStroke: "2px #E2CAA2",
-
   },
   customCursor: {
     position: "absolute",

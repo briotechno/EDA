@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { gsap } from "gsap";
 import Icon from "../assets/icon.png";
-import VisionImage from "../assets/vision.png";  // Impo
+import VisionImage from "../assets/vision.png"; // Impo
 
 const HeroSection = () => {
   const [relX, setRelX] = useState(600); // Initial X position
@@ -35,7 +35,6 @@ const HeroSection = () => {
 
   const [dimensions, setDimensions] = useState({ width: "40%", height: "40%" });
 
-
   useEffect(() => {
     const updateDimensions = () => {
       const screenWidth = window.innerWidth;
@@ -55,7 +54,7 @@ const HeroSection = () => {
     window.addEventListener("resize", updateDimensions);
 
     return () => window.removeEventListener("resize", updateDimensions);
-  }, []);// Stat  // Initial Y position
+  }, []); // Stat  // Initial Y position
 
   useEffect(() => {
     const updateMousePosition = (event) => {
@@ -132,7 +131,6 @@ const HeroSection = () => {
     return () => window.removeEventListener("resize", updateFontSize);
   }, []);
 
-
   return (
     <div
       className="hero-section"
@@ -158,7 +156,7 @@ const HeroSection = () => {
           src={Icon}
           alt="Top Left Icon"
           style={{
-            width: "22px", // Adjust size as needed
+            width: "56px", // Adjust size as needed
             height: "21px",
           }}
         />
@@ -205,10 +203,10 @@ const HeroSection = () => {
         className="language-selector2"
         style={{
           position: "absolute",
-          bottom: "30px",  // Position it at the bottom
-          right: "20px",   // Position it at the right
+          bottom: "30px", // Position it at the bottom
+          right: "20px", // Position it at the right
           display: "flex",
-          gap: "30px",     // Space between language options
+          gap: "30px", // Space between language options
           zIndex: 1000,
           color: "#E2CAA2",
           fontSize: "12px",
@@ -217,9 +215,9 @@ const HeroSection = () => {
         {["IMPRESSUM", "AGB", "DATENSCHUTZ"].map((lang) => (
           <span
             key={lang}
-            onMouseEnter={() => setHoveringText(true)}  // Set hover state
-            onMouseLeave={() => setHoveringText(false)}  // Reset hover state
-            onClick={() => setSelectedWork(lang)}  // Update selected language
+            onMouseEnter={() => setHoveringText(true)} // Set hover state
+            onMouseLeave={() => setHoveringText(false)} // Reset hover state
+            onClick={() => setSelectedWork(lang)} // Update selected language
             style={{
               cursor: "pointer",
               fontWeight: selectedWork === lang ? "bold" : "normal",
@@ -271,7 +269,6 @@ const HeroSection = () => {
         }}
       />
 
-
       <svg
         width="100%"
         height="100%"
@@ -297,24 +294,76 @@ const HeroSection = () => {
             <polygon points={`0,0 ${relX},${relY} ${window.innerWidth},0`} />
           </clipPath>
           <clipPath id="clip-yellow">
-            <polygon points={`${relX},${relY} ${window.innerWidth},0 ${window.innerWidth},${window.innerHeight}`} />
+            <polygon
+              points={`${relX},${relY} ${window.innerWidth},0 ${window.innerWidth},${window.innerHeight}`}
+            />
           </clipPath>
           <clipPath id="clip-blue">
-            <polygon points={`0,${window.innerHeight} ${relX},${relY} ${window.innerWidth},${window.innerHeight}`} />
+            <polygon
+              points={`0,${window.innerHeight} ${relX},${relY} ${window.innerWidth},${window.innerHeight}`}
+            />
           </clipPath>
         </defs>
 
         {/* Polygons */}
-        <polygon className="polygon" points={`0,0 ${relX},${relY} 0,${window.innerHeight}`} fill="url(#gradient2)" />
-        <polygon className="polygon2" points={`0,0 ${relX},${relY} ${window.innerWidth},0`} fill="url(#gradient2)" />
-        <polygon className="polygon3" points={`${relX},${relY} ${window.innerWidth},0 ${window.innerWidth},${window.innerHeight}`} fill="url(#gradient)" />
-        <polygon className="polygon4" points={`0,${window.innerHeight} ${relX},${relY} ${window.innerWidth},${window.innerHeight}`} fill="url(#gradient)" />
+        <polygon
+          className="polygon"
+          points={`0,0 ${relX},${relY} 0,${window.innerHeight}`}
+          fill="url(#gradient2)"
+        />
+        <polygon
+          className="polygon2"
+          points={`0,0 ${relX},${relY} ${window.innerWidth},0`}
+          fill="url(#gradient2)"
+        />
+        <polygon
+          className="polygon3"
+          points={`${relX},${relY} ${window.innerWidth},0 ${window.innerWidth},${window.innerHeight}`}
+          fill="url(#gradient)"
+        />
+        <polygon
+          className="polygon4"
+          points={`0,${window.innerHeight} ${relX},${relY} ${window.innerWidth},${window.innerHeight}`}
+          fill="url(#gradient)"
+        />
 
         {/* Dynamic Lines */}
-        <line className="line" x1="0" y1="0" x2={relX} y2={relY} stroke="#0A5D8F" strokeWidth="1" />
-        <line className="line" x1={window.innerWidth} y1="0" x2={relX} y2={relY} stroke="#0A5D8F" strokeWidth="1" />
-        <line className="line" x1={window.innerWidth} y1={window.innerHeight} x2={relX} y2={relY} stroke="#0A5D8F" strokeWidth="1" />
-        <line className="line" x1="0" y1={window.innerHeight} x2={relX} y2={relY} stroke="#0A5D8F" strokeWidth="1" />
+        <line
+          className="line"
+          x1="0"
+          y1="0"
+          x2={relX}
+          y2={relY}
+          stroke="#0A5D8F"
+          strokeWidth="1"
+        />
+        <line
+          className="line"
+          x1={window.innerWidth}
+          y1="0"
+          x2={relX}
+          y2={relY}
+          stroke="#0A5D8F"
+          strokeWidth="1"
+        />
+        <line
+          className="line"
+          x1={window.innerWidth}
+          y1={window.innerHeight}
+          x2={relX}
+          y2={relY}
+          stroke="#0A5D8F"
+          strokeWidth="1"
+        />
+        <line
+          className="line"
+          x1="0"
+          y1={window.innerHeight}
+          x2={relX}
+          y2={relY}
+          stroke="#0A5D8F"
+          strokeWidth="1"
+        />
 
         {/* Images with Clipping */}
         <image
@@ -325,7 +374,7 @@ const HeroSection = () => {
           y={centerY}
           style={{ clipPath: "url(#clip-red)" }}
         />
-         <image
+        <image
           href={require("../assets/colortext.png")}
           width={dimensions.width}
           height={dimensions.height}
@@ -351,8 +400,6 @@ const HeroSection = () => {
         />
       </svg>
 
-
-
       <div
         className="custom-cursor"
         style={{
@@ -372,4 +419,3 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
-
