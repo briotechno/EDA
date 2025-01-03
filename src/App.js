@@ -1,18 +1,19 @@
 import React, { useState } from "react";
-import LoadingScreen from "./components/LoadingScreen";
+import { useMediaQuery } from "react-responsive";
 import HeroSection from "./components/HeroSection";
+import HeroSmall from "./components/HeroSmall";
 import HeroSection2 from "./components/HeroSection2";
-import { Box, CssBaseline } from "@mui/material";
 
 const App = () => {
   const [loadingComplete, setLoadingComplete] = useState(false);
 
+  // Media query to detect screen width below 960 pixels
+  const isSmallScreen = useMediaQuery({ maxWidth: 820 });
+
   return (
-    <Box>
-      <CssBaseline />
-      {/* <HeroSection /> */}
-      <HeroSection2 />
-    </Box>
+    <div>
+      {isSmallScreen ? <HeroSmall /> : <HeroSection2 />}
+    </div>
   );
 };
 

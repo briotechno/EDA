@@ -1,0 +1,23 @@
+.responsive-image {
+    position: absolute;
+    width: 400px;
+    height: 100px;
+  }
+  
+  @media (max-width: 576px) { /* xs screens */
+    .responsive-image {
+      transform: translate(50%, 50%);
+    }
+  }
+  
+  @media (min-width: 577px) and (max-width: 768px) { /* sm screens */
+    .responsive-image {
+      transform: translate(40%, 40%);
+    }
+  }
+  
+  @media (min-width: 769px) { /* md and larger */
+    .responsive-image {
+      transform: translate(32%, 30%);
+    }
+  }

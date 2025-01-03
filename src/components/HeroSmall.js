@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { gsap } from "gsap";
 import Icon from "../assets/icon.png";
-import VisionImage from "../assets/vision.png";  // Impo
+import { useMediaQuery } from "react-responsive";
 
 const HeroSection = () => {
   const [relX, setRelX] = useState(600); // Initial X position
@@ -10,30 +10,30 @@ const HeroSection = () => {
   const [selectedLanguage, setSelectedLanguage] = useState("EN");
   const [selectedWork, setSelectedWork] = useState("AGB"); // Default selected language
   const [hoveringText, setHoveringText] = useState(false);
-  const [screenDimensions, setScreenDimensions] = useState({
-    width: window.innerWidth,
-    height: window.innerHeight,
-  });
+  const [dimensions, setDimensions] = useState({ width: "50%", height: "50%" });
+  const isXs = useMediaQuery({ query: '(max-width: 576px)' });
+  const isSm = useMediaQuery({ query: '(min-width: 577px) and (max-width: 768px)' });
+  const isMd = useMediaQuery({ query: '(min-width: 769px) and (max-width: 1024px)' });
+  const isLg = useMediaQuery({ query: '(min-width: 1025px) and (max-width: 1200px)' });
+  const isXl = useMediaQuery({ query: '(min-width: 1201px)' });
 
-  useEffect(() => {
-    const handleResize = () => {
-      setScreenDimensions({
-        width: window.innerWidth,
-        height: window.innerHeight,
-      });
-    };
+  // Define x and y based on screen size
+  const x = isXs ? "22%" : "32%";
+  const y = isXs ? "20%" : "30%";
+  
 
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  const ix = isXs ? "60%" : "40%";
+  const iy = isXs ? "65%" : "45%";
 
-  const imageWidth = screenDimensions.width * 0.35; // Convert "40%" to pixel value
-  const imageHeight = screenDimensions.height * 0.31;
+  const vx = isXl ? "18%" : "28%";
+  const vy = isXl ? "18%" : "28%";
 
-  const centerX = (screenDimensions.width - imageWidth) / 2;
-  const centerY = (screenDimensions.height - imageHeight) / 2;
+  const px = isXl ? "42%" : "38%";
+  const py = isXl ? "20%" : "32%";
 
-  const [dimensions, setDimensions] = useState({ width: "40%", height: "40%" });
+
+
+
 
 
   useEffect(() => {
@@ -118,9 +118,9 @@ const HeroSection = () => {
     const updateFontSize = () => {
       const width = window.innerWidth;
       if (width < 768) {
-        setFontSize("6px"); // xs
+        setFontSize("9px"); // xs
       } else if (width < 1024) {
-        setFontSize("6px"); // md
+        setFontSize("12px"); // md
       } else {
         setFontSize("12px"); // lg
       }
@@ -131,6 +131,15 @@ const HeroSection = () => {
 
     return () => window.removeEventListener("resize", updateFontSize);
   }, []);
+
+  let bottomValue = '50px';
+  if (isSm) bottomValue = '45px';
+  if (isMd) bottomValue = '40px';
+  if (isLg) bottomValue = '30px';
+  if (isXl) bottomValue = '20px';
+
+
+
 
 
   return (
@@ -212,6 +221,13 @@ const HeroSection = () => {
           zIndex: 1000,
           color: "#E2CAA2",
           fontSize: "12px",
+          ...(window.innerWidth < 800 ? {
+            left: "50%",
+            bottom: "2%",
+            fontSize: "14px",
+            transform: "translateX(-50%)",  // Center align it horizontally
+            right: "auto",  // Reset the right positioning
+          } : {}),
         }}
       >
         {["IMPRESSUM", "AGB", "DATENSCHUTZ"].map((lang) => (
@@ -233,7 +249,7 @@ const HeroSection = () => {
         className="bottom-text"
         style={{
           position: "absolute",
-          bottom: "20px",
+          bottom: bottomValue,
           left: "50%",
           transform: "translateX(-50%)",
           textAlign: "center",
@@ -258,18 +274,7 @@ const HeroSection = () => {
           TO START
         </div>
       </div>
-      <img
-        src={VisionImage}
-        alt="Vision Image"
-        style={{
-          position: "absolute",
-          top: "calc(50% - 100px)", // Adjust position as needed
-          left: "50%",
-          transform: "translateX(-50%)",
-          width: "15%", // Adjust size as needed
-          zIndex: 500,
-        }}
-      />
+
 
 
       <svg
@@ -278,6 +283,7 @@ const HeroSection = () => {
         xmlns="http://www.w3.org/2000/svg"
         style={{ position: "absolute", top: 0, left: 0 }}
       >
+        {/* Define colored areas */}
         <defs>
           <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="20%" stopColor="#040F16" />
@@ -289,70 +295,95 @@ const HeroSection = () => {
             <stop offset="60%" stopColor="#06242E" />
             <stop offset="100%" stopColor="#073845" />
           </linearGradient>
-
-          <clipPath id="clip-red">
-            <polygon points={`0,0 ${relX},${relY} 0,${window.innerHeight}`} />
-          </clipPath>
-          <clipPath id="clip-green">
-            <polygon points={`0,0 ${relX},${relY} ${window.innerWidth},0`} />
-          </clipPath>
-          <clipPath id="clip-yellow">
-            <polygon points={`${relX},${relY} ${window.innerWidth},0 ${window.innerWidth},${window.innerHeight}`} />
-          </clipPath>
-          <clipPath id="clip-blue">
-            <polygon points={`0,${window.innerHeight} ${relX},${relY} ${window.innerWidth},${window.innerHeight}`} />
-          </clipPath>
         </defs>
 
-        {/* Polygons */}
+        {/* Apply gradients to polygons */}
         <polygon className="polygon" points={`0,0 ${relX},${relY} 0,${window.innerHeight}`} fill="url(#gradient2)" />
         <polygon className="polygon2" points={`0,0 ${relX},${relY} ${window.innerWidth},0`} fill="url(#gradient2)" />
         <polygon className="polygon3" points={`${relX},${relY} ${window.innerWidth},0 ${window.innerWidth},${window.innerHeight}`} fill="url(#gradient)" />
         <polygon className="polygon4" points={`0,${window.innerHeight} ${relX},${relY} ${window.innerWidth},${window.innerHeight}`} fill="url(#gradient)" />
 
-        {/* Dynamic Lines */}
+        {/* Draw dynamic lines */}
         <line className="line" x1="0" y1="0" x2={relX} y2={relY} stroke="#0A5D8F" strokeWidth="1" />
-        <line className="line" x1={window.innerWidth} y1="0" x2={relX} y2={relY} stroke="#0A5D8F" strokeWidth="1" />
-        <line className="line" x1={window.innerWidth} y1={window.innerHeight} x2={relX} y2={relY} stroke="#0A5D8F" strokeWidth="1" />
-        <line className="line" x1="0" y1={window.innerHeight} x2={relX} y2={relY} stroke="#0A5D8F" strokeWidth="1" />
+        <line className="line" x1="100%" y1="0" x2={relX} y2={relY} stroke="#0A5D8F" strokeWidth="1" />
+        <line className="line" x1="100%" y1="100%" x2={relX} y2={relY} stroke="#0A5D8F" strokeWidth="1" />
+        <line className="line" x1="0" y1="100%" x2={relX} y2={relY} stroke="#0A5D8F" strokeWidth="1" />
 
-        {/* Images with Clipping */}
+        {/* Render text with clipping */}
+        <defs>
+          {/* Green Section Clip */}
+          <clipPath id="green-clip">
+            <polygon points={`0,0 ${relX},${relY} ${window.innerWidth},0`} />
+          </clipPath>
+          {/* Yellow Section Clip */}
+          <clipPath id="yellow-clip">
+            <polygon points={`${relX},${relY} ${window.innerWidth},0 ${window.innerWidth},${window.innerHeight}`} />
+          </clipPath>
+          {/* Red Section Clip */}
+          <clipPath id="red-clip">
+            <polygon points={`0,0 ${relX},${relY} 0,${window.innerHeight}`} />
+          </clipPath>
+          {/* Blue Section Clip */}
+          <clipPath id="blue-clip">
+            <polygon points={`0,${window.innerHeight} ${relX},${relY} ${window.innerWidth},${window.innerHeight}`} />
+          </clipPath>
+        </defs>
         <image
-          href={require("../assets/colortext.png")}
-          width={dimensions.width}
-          height={dimensions.height}
-          x={centerX}
-          y={centerY}
-          style={{ clipPath: "url(#clip-red)" }}
+          className="text-vision"
+          x={px}
+          y={py}
+          href={require("../assets/vision.png")} // Replace with your actual path
+          width={vx}
+          height={vy}
+          
         />
-         <image
-          href={require("../assets/colortext.png")}
-          width={dimensions.width}
-          height={dimensions.height}
-          x={centerX}
-          y={centerY}
-          style={{ clipPath: "url(#clip-blue)" }}
-        />
-        <image
-          href={require("../assets/colortext.png")}
-          width={dimensions.width}
-          height={dimensions.height}
-          x={centerX}
-          y={centerY}
-          style={{ clipPath: "url(#clip-yellow)" }}
-        />
-        <image
-          href={require("../assets/outlinetext.png")}
-          width={dimensions.width}
-          height={dimensions.height}
-          x={centerX}
-          y={centerY}
-          style={{ clipPath: "url(#clip-green)" }}
-        />
+        <svg
+           x={x}
+           y={y}
+        >
+          <image
+            href={require("../assets/colortext.png")} // Replace with your actual path
+            width={ix}
+            height={iy}
+            style={{
+              clipPath: "url(#red-clip)",
+            }}
+            
+          />
+
+          <image
+            href={require("../assets/outlinetext.png")} // Replace with your actual path
+            width={ix}
+            height={iy}
+            style={{
+              clipPath: "url(#green-clip)",
+            }}
+          />
+
+          <image
+            href={require("../assets/outlinetext.png")} // Replace with your actual path
+            width={ix}
+            height={iy}
+            style={{
+              clipPath: "url(#yellow-clip)",
+            }}
+          />
+
+          <image
+            href={require("../assets/outlinetext.png")} // Replace with your actual path
+            width={ix}
+            height={iy}
+            style={{
+              clipPath: "url(#blue-clip)",
+            }}
+          />
+        </svg>
+
+
+
       </svg>
 
-
-
+      {/* Custom Cursor */}
       <div
         className="custom-cursor"
         style={{
