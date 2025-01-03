@@ -11,16 +11,21 @@ const HeroSection = () => {
   const [selectedWork, setSelectedWork] = useState("AGB"); // Default selected language
   const [hoveringText, setHoveringText] = useState(false);
   const [dimensions, setDimensions] = useState({ width: "50%", height: "50%" });
-  const isXs = useMediaQuery({ query: '(max-width: 576px)' });
-  const isSm = useMediaQuery({ query: '(min-width: 577px) and (max-width: 768px)' });
-  const isMd = useMediaQuery({ query: '(min-width: 769px) and (max-width: 1024px)' });
-  const isLg = useMediaQuery({ query: '(min-width: 1025px) and (max-width: 1200px)' });
-  const isXl = useMediaQuery({ query: '(min-width: 1201px)' });
+  const isXs = useMediaQuery({ query: "(max-width: 576px)" });
+  const isSm = useMediaQuery({
+    query: "(min-width: 577px) and (max-width: 768px)",
+  });
+  const isMd = useMediaQuery({
+    query: "(min-width: 769px) and (max-width: 1024px)",
+  });
+  const isLg = useMediaQuery({
+    query: "(min-width: 1025px) and (max-width: 1200px)",
+  });
+  const isXl = useMediaQuery({ query: "(min-width: 1201px)" });
 
   // Define x and y based on screen size
   const x = isXs ? "22%" : "32%";
   const y = isXs ? "20%" : "30%";
-  
 
   const ix = isXs ? "60%" : "40%";
   const iy = isXs ? "65%" : "45%";
@@ -30,11 +35,6 @@ const HeroSection = () => {
 
   const px = isXl ? "42%" : "38%";
   const py = isXl ? "20%" : "32%";
-
-
-
-
-
 
   useEffect(() => {
     const updateDimensions = () => {
@@ -55,7 +55,7 @@ const HeroSection = () => {
     window.addEventListener("resize", updateDimensions);
 
     return () => window.removeEventListener("resize", updateDimensions);
-  }, []);// Stat  // Initial Y position
+  }, []); // Stat  // Initial Y position
 
   useEffect(() => {
     const updateMousePosition = (event) => {
@@ -132,15 +132,11 @@ const HeroSection = () => {
     return () => window.removeEventListener("resize", updateFontSize);
   }, []);
 
-  let bottomValue = '50px';
-  if (isSm) bottomValue = '45px';
-  if (isMd) bottomValue = '40px';
-  if (isLg) bottomValue = '30px';
-  if (isXl) bottomValue = '20px';
-
-
-
-
+  let bottomValue = "50px";
+  if (isSm) bottomValue = "45px";
+  if (isMd) bottomValue = "40px";
+  if (isLg) bottomValue = "30px";
+  if (isXl) bottomValue = "20px";
 
   return (
     <div
@@ -214,28 +210,30 @@ const HeroSection = () => {
         className="language-selector2"
         style={{
           position: "absolute",
-          bottom: "30px",  // Position it at the bottom
-          right: "20px",   // Position it at the right
+          bottom: "30px", // Position it at the bottom
+          right: "20px", // Position it at the right
           display: "flex",
-          gap: "30px",     // Space between language options
+          gap: "30px", // Space between language options
           zIndex: 1000,
           color: "#E2CAA2",
           fontSize: "12px",
-          ...(window.innerWidth < 800 ? {
-            left: "50%",
-            bottom: "2%",
-            fontSize: "14px",
-            transform: "translateX(-50%)",  // Center align it horizontally
-            right: "auto",  // Reset the right positioning
-          } : {}),
+          ...(window.innerWidth < 800
+            ? {
+                left: "50%",
+                bottom: "2%",
+                fontSize: "14px",
+                transform: "translateX(-50%)", // Center align it horizontally
+                right: "auto", // Reset the right positioning
+              }
+            : {}),
         }}
       >
         {["IMPRESSUM", "AGB", "DATENSCHUTZ"].map((lang) => (
           <span
             key={lang}
-            onMouseEnter={() => setHoveringText(true)}  // Set hover state
-            onMouseLeave={() => setHoveringText(false)}  // Reset hover state
-            onClick={() => setSelectedWork(lang)}  // Update selected language
+            onMouseEnter={() => setHoveringText(true)} // Set hover state
+            onMouseLeave={() => setHoveringText(false)} // Reset hover state
+            onClick={() => setSelectedWork(lang)} // Update selected language
             style={{
               cursor: "pointer",
               fontWeight: selectedWork === lang ? "bold" : "normal",
@@ -275,8 +273,6 @@ const HeroSection = () => {
         </div>
       </div>
 
-
-
       <svg
         width="100%"
         height="100%"
@@ -298,16 +294,64 @@ const HeroSection = () => {
         </defs>
 
         {/* Apply gradients to polygons */}
-        <polygon className="polygon" points={`0,0 ${relX},${relY} 0,${window.innerHeight}`} fill="url(#gradient2)" />
-        <polygon className="polygon2" points={`0,0 ${relX},${relY} ${window.innerWidth},0`} fill="url(#gradient2)" />
-        <polygon className="polygon3" points={`${relX},${relY} ${window.innerWidth},0 ${window.innerWidth},${window.innerHeight}`} fill="url(#gradient)" />
-        <polygon className="polygon4" points={`0,${window.innerHeight} ${relX},${relY} ${window.innerWidth},${window.innerHeight}`} fill="url(#gradient)" />
+        <polygon
+          className="polygon"
+          points={`0,0 ${relX},${relY} 0,${window.innerHeight}`}
+          fill="url(#gradient2)"
+        />
+        <polygon
+          className="polygon2"
+          points={`0,0 ${relX},${relY} ${window.innerWidth},0`}
+          fill="url(#gradient2)"
+        />
+        <polygon
+          className="polygon3"
+          points={`${relX},${relY} ${window.innerWidth},0 ${window.innerWidth},${window.innerHeight}`}
+          fill="url(#gradient)"
+        />
+        <polygon
+          className="polygon4"
+          points={`0,${window.innerHeight} ${relX},${relY} ${window.innerWidth},${window.innerHeight}`}
+          fill="url(#gradient)"
+        />
 
         {/* Draw dynamic lines */}
-        <line className="line" x1="0" y1="0" x2={relX} y2={relY} stroke="#0A5D8F" strokeWidth="1" />
-        <line className="line" x1="100%" y1="0" x2={relX} y2={relY} stroke="#0A5D8F" strokeWidth="1" />
-        <line className="line" x1="100%" y1="100%" x2={relX} y2={relY} stroke="#0A5D8F" strokeWidth="1" />
-        <line className="line" x1="0" y1="100%" x2={relX} y2={relY} stroke="#0A5D8F" strokeWidth="1" />
+        <line
+          className="line"
+          x1="0"
+          y1="0"
+          x2={relX}
+          y2={relY}
+          stroke="#0A5D8F"
+          strokeWidth="1"
+        />
+        <line
+          className="line"
+          x1="100%"
+          y1="0"
+          x2={relX}
+          y2={relY}
+          stroke="#0A5D8F"
+          strokeWidth="1"
+        />
+        <line
+          className="line"
+          x1="100%"
+          y1="100%"
+          x2={relX}
+          y2={relY}
+          stroke="#0A5D8F"
+          strokeWidth="1"
+        />
+        <line
+          className="line"
+          x1="0"
+          y1="100%"
+          x2={relX}
+          y2={relY}
+          stroke="#0A5D8F"
+          strokeWidth="1"
+        />
 
         {/* Render text with clipping */}
         <defs>
@@ -317,7 +361,9 @@ const HeroSection = () => {
           </clipPath>
           {/* Yellow Section Clip */}
           <clipPath id="yellow-clip">
-            <polygon points={`${relX},${relY} ${window.innerWidth},0 ${window.innerWidth},${window.innerHeight}`} />
+            <polygon
+              points={`${relX},${relY} ${window.innerWidth},0 ${window.innerWidth},${window.innerHeight}`}
+            />
           </clipPath>
           {/* Red Section Clip */}
           <clipPath id="red-clip">
@@ -325,7 +371,9 @@ const HeroSection = () => {
           </clipPath>
           {/* Blue Section Clip */}
           <clipPath id="blue-clip">
-            <polygon points={`0,${window.innerHeight} ${relX},${relY} ${window.innerWidth},${window.innerHeight}`} />
+            <polygon
+              points={`0,${window.innerHeight} ${relX},${relY} ${window.innerWidth},${window.innerHeight}`}
+            />
           </clipPath>
         </defs>
         <image
@@ -335,12 +383,8 @@ const HeroSection = () => {
           href={require("../assets/vision.png")} // Replace with your actual path
           width={vx}
           height={vy}
-          
         />
-        <svg
-           x={x}
-           y={y}
-        >
+        <svg x={x} y={y}>
           <image
             href={require("../assets/colortext.png")} // Replace with your actual path
             width={ix}
@@ -348,7 +392,6 @@ const HeroSection = () => {
             style={{
               clipPath: "url(#red-clip)",
             }}
-            
           />
 
           <image
@@ -378,9 +421,6 @@ const HeroSection = () => {
             }}
           />
         </svg>
-
-
-
       </svg>
 
       {/* Custom Cursor */}
@@ -403,4 +443,3 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
-

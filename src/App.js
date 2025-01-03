@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { useMediaQuery } from "react-responsive";
-import HeroSection from "./components/HeroSection";
-import HeroSmall from "./components/HeroSmall";
 import HeroSection2 from "./components/HeroSection2";
-
+import HeroSmall from "./components/HeroSmall";
+import CookieConsent from "react-cookie-consent";
 const App = () => {
   const [loadingComplete, setLoadingComplete] = useState(false);
 
@@ -13,6 +12,16 @@ const App = () => {
   return (
     <div>
       {isSmallScreen ? <HeroSmall /> : <HeroSection2 />}
+      <CookieConsent
+        location="bottom"
+        buttonText="Accept"
+        cookieName="EDA "
+        style={{ background: "#040F16", zIndex: 1111 }}
+        buttonStyle={{ background: "#E2CAA2", fontSize: "16px", }}
+        expires={150}
+      >
+        This website uses cookies to enhance the user experience.{" "}
+      </CookieConsent>
     </div>
   );
 };

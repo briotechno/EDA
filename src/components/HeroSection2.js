@@ -188,8 +188,7 @@ const HeroSection2 = () => {
           zIndex: 1000,
           color: "#E2CAA2",
           fontSize: "16px",
-          fontWeight:300,
-        
+          fontWeight: 300,
         }}
       >
         {["IMPRESSUM", "AGB", "DATENSCHUTZ"].map((lang) => (
