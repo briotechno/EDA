@@ -245,6 +245,7 @@ const HeroSection = () => {
           zIndex: 1000,
         }}
       >
+        
         <div>HOLD THE CLICK</div>
         <div
           style={{
