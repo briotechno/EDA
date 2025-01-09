@@ -97,6 +97,7 @@ const HeroSection2 = () => {
       const newRelY = event.clientY - heroSection.top;
       setRelX(newRelX);
       setRelY(newRelY);
+
       gsap.to(".custom-cursor", {
         duration: 0.1,
         left: `${newRelX + 20}px`,
@@ -107,6 +108,7 @@ const HeroSection2 = () => {
     window.addEventListener("mousemove", updateMousePosition);
     return () => window.removeEventListener("mousemove", updateMousePosition);
   }, []);
+
   //? -----------------track-mouse-position------------------------
 
   return (
@@ -328,8 +330,8 @@ const HeroSection2 = () => {
         className="custom-cursor"
         sx={{
           ...style.customCursor,
-          left: `${relX * 200}px`,
-          top: `${relY - 100}px`,
+          left: `${relX}px`,
+          top: `${relY}px`,
         }}
       />
     </Box>
