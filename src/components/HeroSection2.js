@@ -75,8 +75,8 @@ const DynamicPolygon = ({
 };
 
 const HeroSection2 = () => {
-  const [selectedLanguage, setSelectedLanguage] = useState("EN");
-  const [selectedWork, setSelectedWork] = useState("AGB"); // Default selected language
+  const [selectedLanguage, setSelectedLanguage] = useState("DE");
+  const [selectedWork, setSelectedWork] = useState(""); // Default selected language
   const [hoveringText, setHoveringText] = useState(false);
   //todo--------------mediaQuery for mobile------------------------
   const isMobile = useMediaQuery({
@@ -98,10 +98,10 @@ const HeroSection2 = () => {
       setRelX(newRelX);
       setRelY(newRelY);
       gsap.to(".custom-cursor", {
-        duration: 0.2,
-        left: `${newRelX}px`,
-        top: `${newRelY}px`,
-        ease: "power3.out",
+        duration: 0.1,
+        left: `${newRelX + 20}px`,
+        top: `${newRelY + 20}px`,
+        ease: "sine.out",
       });
     };
     window.addEventListener("mousemove", updateMousePosition);
@@ -328,8 +328,8 @@ const HeroSection2 = () => {
         className="custom-cursor"
         sx={{
           ...style.customCursor,
-          left: `${relX}px`,
-          top: `${relY}px`,
+          left: `${relX * 200}px`,
+          top: `${relY - 100}px`,
         }}
       />
     </Box>
