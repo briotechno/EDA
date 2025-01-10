@@ -206,6 +206,8 @@ const HeroSection2 = () => {
                 navigate("/Datenschutz"); // Navigate to /DATENSCHUTZ
               } else if (lang === "AGB") {
                 navigate("/AGB"); // Navigate to /AGB
+              } else if (lang === "IMPRESSUM") {
+                navigate("/Impressum"); // Navigate to /Impressum
               }
             }}
             style={{
@@ -259,6 +261,60 @@ const HeroSection2 = () => {
         }}
       />
       <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100vh">
+        <defs xmlns="http://www.w3.org/2000/svg">
+          <linearGradient
+            id="top"
+            x1="1033.5"
+            y1="-23"
+            x2="976"
+            y2="413"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop stop-color="#073845" />
+            <stop offset="1" stop-color="#040F16" />
+          </linearGradient>
+        </defs>
+        <defs xmlns="http://www.w3.org/2000/svg">
+          <linearGradient
+            id="bottom"
+            x1="1418"
+            y1="534"
+            x2="1250"
+            y2="91"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop stop-color="#073845" />
+            <stop offset="0.415" stop-color="#06242E" />
+            <stop offset="1" stop-color="#040F16" />
+          </linearGradient>
+        </defs>
+        <defs xmlns="http://www.w3.org/2000/svg">
+          <linearGradient
+            id="left"
+            x1="100"
+            y1="394"
+            x2="1370"
+            y2="576.5"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop stop-color="#073845" />
+            <stop offset="1" stop-color="#040F16" />
+          </linearGradient>
+        </defs>
+        <defs xmlns="http://www.w3.org/2000/svg">
+          <linearGradient
+            id="right"
+            x1="900"
+            y1="1100"
+            x2="800"
+            y2="300"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop stop-color="#073845" />
+            <stop offset="0.684416" stop-color="#062934" />
+            <stop offset="1" stop-color="#040F16" />
+          </linearGradient>
+        </defs>
         <defs>
           {/* Gradient Definitions */}
           <linearGradient id="gradient1" x1="100%" y1="100%" x2="0%" y2="0%">
@@ -272,7 +328,6 @@ const HeroSection2 = () => {
             <stop offset="100%" stopColor="#073845" />
           </linearGradient>
 
-        
           <linearGradient id="gradient3" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="20%" stopColor="#040F16" />
             <stop offset="60%" stopColor="#06242E" />
@@ -282,7 +337,7 @@ const HeroSection2 = () => {
         {/* Dynamic Polygon with gradient */}
 
         <DynamicPolygon //left
-          fill="url(#gradient1)" // Apply gradient1
+          fill="url(#left)" // Apply gradient1
           topLeftX={0}
           topLeftY={0}
           topRightX={150}
@@ -295,7 +350,7 @@ const HeroSection2 = () => {
         />
 
         <DynamicPolygon //right
-          fill="url(#gradient2)" // Apply gradient2
+          fill="url(#right)" // Apply gradient2
           topLeftX={relX}
           topLeftY={relY}
           topRightX={window.innerWidth - 0}
@@ -307,7 +362,7 @@ const HeroSection2 = () => {
           imageSrc={require("../assets/colortext.png")}
         />
         <DynamicPolygon //top
-          fill="url(#gradient1)" // Apply gradient1
+          fill="url(#top)" // Apply gradient1
           topLeftX={window.innerWidth - 0}
           topLeftY={0}
           topRightX={window.innerWidth - 0}
@@ -319,8 +374,8 @@ const HeroSection2 = () => {
           imageSrc={require("../assets/outlinetext.png")}
         />
 
-        <DynamicPolygon //top
-          fill="url(#gradient3)" // Apply gradient3
+        <DynamicPolygon //bottom
+          fill="url(#bottom)" // Apply gradient3
           topLeftX={0}
           topLeftY={window.innerHeight * 0.9}
           topRightX={relX}
