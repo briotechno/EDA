@@ -3,7 +3,8 @@ import gsap from "gsap/all";
 import React, { useEffect, useState } from "react";
 import { useMediaQuery } from "react-responsive";
 import Icon from "../assets/icon.png";
-import VisionImage from "../assets/vision.png"; // Impo
+import VisionImage from "../assets/vision.png";
+import { useNavigate } from "react-router-dom"; // Im // Impo
 
 // DynamicPolygon component
 const DynamicPolygon = ({
@@ -78,6 +79,7 @@ const HeroSection2 = () => {
   const [selectedLanguage, setSelectedLanguage] = useState("DE");
   const [selectedWork, setSelectedWork] = useState(""); // Default selected language
   const [hoveringText, setHoveringText] = useState(false);
+  const navigate = useNavigate(); // I
   //todo--------------mediaQuery for mobile------------------------
   const isMobile = useMediaQuery({
     query: "(max-width: 768px)",
@@ -193,20 +195,27 @@ const HeroSection2 = () => {
           fontWeight: 300,
         }}
       >
-        {["IMPRESSUM", "AGB", "DATENSCHUTZ"].map((lang) => (
-          <span
-            key={lang}
-            onMouseEnter={() => setHoveringText(true)} // Set hover state
-            onMouseLeave={() => setHoveringText(false)} // Reset hover state
-            onClick={() => setSelectedWork(lang)} // Update selected language
-            style={{
-              cursor: "pointer",
-              fontWeight: selectedWork === lang ? "bold" : "300",
-            }}
-          >
-            {lang}
-          </span>
-        ))}
+      {["IMPRESSUM", "AGB", "DATENSCHUTZ"].map((lang) => (
+        <span
+          key={lang}
+          onMouseEnter={() => setHoveringText(true)} // Set hover state
+          onMouseLeave={() => setHoveringText(false)} // Reset hover state
+          onClick={() => {
+            setSelectedWork(lang); // Update selected language
+            if (lang === "DATENSCHUTZ") {
+              navigate("/Datenschutz"); // Navigate to /DATENSCHUTZ
+            }else if (lang === "AGB") {
+              navigate("/AGB"); // Navigate to /AGB
+            }
+          }}
+          style={{
+            cursor: "pointer",
+            fontWeight: selectedWork === lang ? "bold" : "300",
+          }}
+        >
+          {lang}
+        </span>
+      ))}
       </div>
       <div
         className="bottom-text"
@@ -242,10 +251,10 @@ const HeroSection2 = () => {
         alt="Vision Image"
         style={{
           position: "absolute",
-          top: "calc(40% - 50px)", // Adjust position as needed
+          top: "calc(50% - 70px)", // Adjust position as needed
           left: "52%",
           transform: "translateX(-50%)",
-          width: "15%", // Adjust size as needed
+          width: "8%", // Adjust size as needed
           zIndex: 500,
         }}
       />
