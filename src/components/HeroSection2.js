@@ -61,11 +61,11 @@ const DynamicPolygon = ({
       {imageSrc && (
         <image
           href={imageSrc}
-          x="33%"
-          y="43%"
+          x="30%"
+          y="31.5%"
           transform="translate(-50%, -50%)"
-          width="40%"
-          height="20%"
+          width="50%"
+          height="40%"
         />
       )}
 
@@ -195,27 +195,27 @@ const HeroSection2 = () => {
           fontWeight: 300,
         }}
       >
-      {["IMPRESSUM", "AGB", "DATENSCHUTZ"].map((lang) => (
-        <span
-          key={lang}
-          onMouseEnter={() => setHoveringText(true)} // Set hover state
-          onMouseLeave={() => setHoveringText(false)} // Reset hover state
-          onClick={() => {
-            setSelectedWork(lang); // Update selected language
-            if (lang === "DATENSCHUTZ") {
-              navigate("/Datenschutz"); // Navigate to /DATENSCHUTZ
-            }else if (lang === "AGB") {
-              navigate("/AGB"); // Navigate to /AGB
-            }
-          }}
-          style={{
-            cursor: "pointer",
-            fontWeight: selectedWork === lang ? "bold" : "300",
-          }}
-        >
-          {lang}
-        </span>
-      ))}
+        {["IMPRESSUM", "AGB", "DATENSCHUTZ"].map((lang) => (
+          <span
+            key={lang}
+            onMouseEnter={() => setHoveringText(true)} // Set hover state
+            onMouseLeave={() => setHoveringText(false)} // Reset hover state
+            onClick={() => {
+              setSelectedWork(lang); // Update selected language
+              if (lang === "DATENSCHUTZ") {
+                navigate("/Datenschutz"); // Navigate to /DATENSCHUTZ
+              } else if (lang === "AGB") {
+                navigate("/AGB"); // Navigate to /AGB
+              }
+            }}
+            style={{
+              cursor: "pointer",
+              fontWeight: selectedWork === lang ? "bold" : "300",
+            }}
+          >
+            {lang}
+          </span>
+        ))}
       </div>
       <div
         className="bottom-text"
@@ -272,6 +272,7 @@ const HeroSection2 = () => {
             <stop offset="100%" stopColor="#073845" />
           </linearGradient>
 
+        
           <linearGradient id="gradient3" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="20%" stopColor="#040F16" />
             <stop offset="60%" stopColor="#06242E" />
@@ -279,6 +280,7 @@ const HeroSection2 = () => {
           </linearGradient>
         </defs>
         {/* Dynamic Polygon with gradient */}
+
         <DynamicPolygon //left
           fill="url(#gradient1)" // Apply gradient1
           topLeftX={0}
@@ -292,7 +294,7 @@ const HeroSection2 = () => {
           imageSrc={require("../assets/colortext.png")}
         />
 
-        <DynamicPolygon
+        <DynamicPolygon //right
           fill="url(#gradient2)" // Apply gradient2
           topLeftX={relX}
           topLeftY={relY}
@@ -304,8 +306,20 @@ const HeroSection2 = () => {
           bottomRightY={window.innerHeight * 1}
           imageSrc={require("../assets/colortext.png")}
         />
+        <DynamicPolygon //top
+          fill="url(#gradient1)" // Apply gradient1
+          topLeftX={window.innerWidth - 0}
+          topLeftY={0}
+          topRightX={window.innerWidth - 0}
+          topRightY={150}
+          bottomLeftX={150}
+          bottomLeftY={0}
+          bottomRightX={relX}
+          bottomRightY={relY}
+          imageSrc={require("../assets/outlinetext.png")}
+        />
 
-        <DynamicPolygon
+        <DynamicPolygon //top
           fill="url(#gradient3)" // Apply gradient3
           topLeftX={0}
           topLeftY={window.innerHeight * 0.9}
@@ -318,18 +332,6 @@ const HeroSection2 = () => {
           imageSrc={require("../assets/outlinetext.png")}
         />
 
-        <DynamicPolygon
-          fill="url(#gradient1)" // Apply gradient1
-          topLeftX={window.innerWidth - 0}
-          topLeftY={0}
-          topRightX={window.innerWidth - 0}
-          topRightY={150}
-          bottomLeftX={150}
-          bottomLeftY={0}
-          bottomRightX={relX}
-          bottomRightY={relY}
-          imageSrc={require("../assets/outlinetext.png")}
-        />
         <defs></defs>
       </svg>
 
