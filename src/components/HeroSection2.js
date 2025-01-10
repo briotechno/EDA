@@ -61,7 +61,7 @@ const DynamicPolygon = ({
       {imageSrc && (
         <image
           href={imageSrc}
-          x="30%"
+          x="26%"
           y="31.5%"
           transform="translate(-50%, -50%)"
           width="50%"
