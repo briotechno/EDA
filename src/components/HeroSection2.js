@@ -1,12 +1,12 @@
 import { Box, Typography } from "@mui/material";
 import gsap from "gsap/all";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useMediaQuery } from "react-responsive";
 import Icon from "../assets/icon.png";
 import VisionImage from "../assets/vision.png";
 import { useNavigate } from "react-router-dom"; // Im // Impo
 
-// DynamicPolygon component
+// // DynamicPolygon component
 const DynamicPolygon = ({
   topLeftX,
   topLeftY,
@@ -102,8 +102,8 @@ const HeroSection2 = () => {
 
       gsap.to(".custom-cursor", {
         duration: 0.1,
-        left: `${newRelX + 20}px`,
-        top: `${newRelY + 20}px`,
+        left: `${newRelX}px`,
+        top: `${newRelY}px`,
         ease: "sine.out",
       });
     };
@@ -228,7 +228,7 @@ const HeroSection2 = () => {
           transform: "translateX(-50%)",
           textAlign: "center",
           color: "#E2CAA2",
-          fontSize: "12px",
+          fontSize: "20px",
           fontWeight: "900",
           lineHeight: "24px",
           letterSpacing: "0.06em",
@@ -242,7 +242,7 @@ const HeroSection2 = () => {
           style={{
             fontWeight: "900",
             textTransform: "uppercase",
-            fontSize: "10px",
+            fontSize: "14px",
           }}
         >
           TO START
@@ -315,8 +315,8 @@ const HeroSection2 = () => {
             <stop offset="1" stop-color="#040F16" />
           </linearGradient>
         </defs>
-        <defs>
-          {/* Gradient Definitions */}
+        {/* <defs>
+      
           <linearGradient id="gradient1" x1="100%" y1="100%" x2="0%" y2="0%">
             <stop offset="10%" stopColor="#040F16" />
             <stop offset="100%" stopColor="#073845" />
@@ -333,7 +333,7 @@ const HeroSection2 = () => {
             <stop offset="60%" stopColor="#06242E" />
             <stop offset="100%" stopColor="#073845" />
           </linearGradient>
-        </defs>
+        </defs> */}
         {/* Dynamic Polygon with gradient */}
 
         <DynamicPolygon //left
@@ -344,15 +344,15 @@ const HeroSection2 = () => {
           topRightY={0}
           bottomLeftX={0}
           bottomLeftY={window.innerHeight * 0.9}
-          bottomRightX={relX}
-          bottomRightY={relY}
+          bottomRightX={relX + 200}
+          bottomRightY={relY + 200}
           imageSrc={require("../assets/colortext.png")}
         />
 
         <DynamicPolygon //right
           fill="url(#right)" // Apply gradient2
-          topLeftX={relX}
-          topLeftY={relY}
+          topLeftX={relX + 200}
+          topLeftY={relY + 200}
           topRightX={window.innerWidth - 0}
           topRightY={150}
           bottomLeftX={window.innerWidth - 250}
@@ -369,8 +369,8 @@ const HeroSection2 = () => {
           topRightY={150}
           bottomLeftX={150}
           bottomLeftY={0}
-          bottomRightX={relX}
-          bottomRightY={relY}
+          bottomRightX={relX + 200}
+          bottomRightY={relY + 200}
           imageSrc={require("../assets/outlinetext.png")}
         />
 
@@ -378,8 +378,8 @@ const HeroSection2 = () => {
           fill="url(#bottom)" // Apply gradient3
           topLeftX={0}
           topLeftY={window.innerHeight * 0.9}
-          topRightX={relX}
-          topRightY={relY}
+          topRightX={relX + 200}
+          topRightY={relY + 200}
           bottomLeftX={0}
           bottomLeftY={window.innerHeight * 1}
           bottomRightX={window.innerWidth - 250}

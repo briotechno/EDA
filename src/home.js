@@ -9,6 +9,7 @@ const Home = () => {
 
   return (
     <div>
+     
       {isSmallScreen ? <HeroSmall /> : <HeroSection2 />}
       <CookieConsent
         location="bottom"

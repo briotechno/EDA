@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router";
 import Home from "./home";
-import Datenschutz from "./menu_pages/Datenschutz";
 import AGB from "./menu_pages/AGB";
+import Datenschutz from "./menu_pages/Datenschutz";
 import Impressum from "./menu_pages/Impressum";
 const App = () => {
   return (
