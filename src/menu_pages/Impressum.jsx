@@ -81,8 +81,10 @@ const Impressum = () => {
           <Box></Box>
           <Box sx={{ flex: 1 }}>
             <Typography
-             fontSize={"35px"} color="#E2CAA2" fontWeight={"bold"}
-              sx={{ fontWeight: "bold",mt:'-4.6rem',mb:'1.6rem' }}
+              fontSize={"35px"}
+              color="#E2CAA2"
+              fontWeight={"bold"}
+              sx={{ fontWeight: "bold", mt: "-4.6rem", mb: "1.6rem" }}
             >
               Postanschrift
             </Typography>
