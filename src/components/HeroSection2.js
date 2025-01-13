@@ -219,35 +219,7 @@ const HeroSection2 = () => {
           </span>
         ))}
       </div>
-      <div
-        className="bottom-text"
-        style={{
-          position: "absolute",
-          bottom: "20px",
-          left: "50%",
-          transform: "translateX(-50%)",
-          textAlign: "center",
-          color: "#E2CAA2",
-          fontSize: "20px",
-          fontWeight: "900",
-          lineHeight: "24px",
-          letterSpacing: "0.06em",
-          textUnderlinePosition: "from-font",
-          textDecorationSkipInk: "none",
-          zIndex: 1000,
-        }}
-      >
-        <div>HOLD THE CLICK</div>
-        <div
-          style={{
-            fontWeight: "900",
-            textTransform: "uppercase",
-            fontSize: "14px",
-          }}
-        >
-          TO START
-        </div>
-      </div>
+      
       <img
         src={VisionImage}
         alt="Vision Image"
