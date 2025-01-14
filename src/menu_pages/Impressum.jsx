@@ -74,7 +74,7 @@ const Impressum = () => {
               Hr. Danneberg, Frau Dr. Ernst
               <br />
               <br />
-              Postanschrift
+            
             </Typography>
           </Box>
           {/* Second Column */}

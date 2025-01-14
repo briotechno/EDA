@@ -1055,7 +1055,7 @@ const Datenschutz = () => {
               ein und verwenden Ihre Daten für die im Zusammenhang mit der Einwilligung angegebenen
               Zwecke. Ihre Einwilligungen werden digital protokolliert. Sie können Ihre Einwilligungen jederzeit
               mit Wirkung für die Zukunft widerrufen. Hierzu schreiben Sie bitte an den
-              Datenschutzbeauftragten oder senden Sie eine E-Mail an privacy@max-boegl.de.
+              Datenschutzbeauftragten oder senden Sie eine E-Mail an info@eda-baumanagement.com
             </Typography>
           </Box>
           <Box sx={{ mb: 3 }}>
