@@ -13,13 +13,13 @@ const Home = () => {
       {isSmallScreen ? <HeroSmall /> : <HeroSection2 />}
       <CookieConsent
         location="bottom"
-        buttonText="Accept"
+        buttonText="Akzeptieren"
         cookieName="EDA "
         style={{ background: "#040F16", zIndex: 1111 }}
         buttonStyle={{ background: "#E2CAA2", fontSize: "16px" }}
         expires={150}
       >
-        This website uses cookies to enhance the user experience.{" "}
+        Diese Website verwendet Cookies, um die Benutzererfahrung zu verbessern.{" "}
       </CookieConsent>
     </div>
   );
