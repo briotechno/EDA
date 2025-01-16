@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { gsap } from "gsap";
-import Icon from "../assets/icon.png";
+import Icon from "../assets/logo.png";
+import { useNavigate } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 
 const HeroSection = () => {
-  const [relX, setRelX] = useState(600); // Initial X position
+  const [relX, setRelX] = useState(50); // Initial X position
   const [relY, setRelY] = useState(300);
+  const navigate = useNavigate(); 
   const [fonttSize, setFontSize] = useState("12px");
   const [selectedLanguage, setSelectedLanguage] = useState("EN");
   const [selectedWork, setSelectedWork] = useState("AGB"); // Default selected language
@@ -70,7 +72,7 @@ const HeroSection = () => {
       // Animate polygons and lines with GSAP
       gsap.to(".line", {
         duration: 0.5,
-        attr: { x2: newRelX, y2: newRelY },
+        attr: { x2: relX, y2: relY },
         ease: "power3.out",
       });
       gsap.to(".polygon", {
@@ -163,20 +165,10 @@ const HeroSection = () => {
           src={Icon}
           alt="Top Left Icon"
           style={{
-            width: "22px", // Adjust size as needed
-            height: "21px",
+            width: "180px", // Adjust size as needed
+            height: "40px",
           }}
         />
-        <span
-          style={{
-            marginLeft: "8px", // Space between icon and text
-
-            color: "#E2CAA2",
-            fontSize: "0.9rem",
-          }}
-        >
-          E - D - A
-        </span>
       </div>
       <div
         className="language-selector"
@@ -233,10 +225,19 @@ const HeroSection = () => {
             key={lang}
             onMouseEnter={() => setHoveringText(true)} // Set hover state
             onMouseLeave={() => setHoveringText(false)} // Reset hover state
-            onClick={() => setSelectedWork(lang)} // Update selected language
+            onClick={() => {
+              setSelectedWork(lang); // Update selected language
+              if (lang === "DATENSCHUTZ") {
+                navigate("/Datenschutz"); // Navigate to /DATENSCHUTZ
+              } else if (lang === "AGB") {
+                navigate("/AGB"); // Navigate to /AGB
+              } else if (lang === "IMPRESSUM") {
+                navigate("/Impressum"); // Navigate to /Impressum
+              }
+            }}
             style={{
               cursor: "pointer",
-              fontWeight: selectedWork === lang ? "bold" : "normal",
+              fontWeight: selectedWork === lang ? "bold" : "300",
             }}
           >
             {lang}

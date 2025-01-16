@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { gsap } from "gsap";
-import Icon from "../assets/icon.png";
+import Icon from "../assets/logo.png";
 import VisionImage from "../assets/vision.png"; // Impo
 
 const HeroSection = () => {

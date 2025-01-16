@@ -2,7 +2,7 @@ import { Box, Typography } from "@mui/material";
 import gsap from "gsap/all";
 import React, { useEffect, useRef, useState } from "react";
 import { useMediaQuery } from "react-responsive";
-import Icon from "../assets/icon.png";
+import Icon from "../assets/logo.png";
 import VisionImage from "../assets/vision.png";
 import { useNavigate } from "react-router-dom"; // Im // Impo
 
@@ -76,6 +76,9 @@ const DynamicPolygon = ({
 };
 
 const HeroSection2 = () => {
+  const [ACP, setACP] = useState({ x: 600, y: 300 });
+  const [cursorPos, setCursorPos] = useState({ x: 300, y: 150 });
+  const [polygonPos, setPolygonPos] = useState({ x: 150, y: 75 });
   const [selectedLanguage, setSelectedLanguage] = useState("DE");
   const [selectedWork, setSelectedWork] = useState(""); // Default selected language
   const [hoveringText, setHoveringText] = useState(false);
@@ -91,21 +94,53 @@ const HeroSection2 = () => {
   const [relY, setRelY] = useState(300);
   // --------------------------------------------------------------
   useEffect(() => {
-    const updateMousePosition = (event) => {
-      const heroSection = document
-        .querySelector("body")
-        .getBoundingClientRect();
-      const newRelX = event.clientX - heroSection.left;
-      const newRelY = event.clientY - heroSection.top;
-      setRelX(newRelX);
-      setRelY(newRelY);
-
-      gsap.to(".custom-cursor", {
-        duration: 0.1,
-        left: `${newRelX}px`,
-        top: `${newRelY}px`,
-        ease: "sine.out",
+    const updatePositions = () => {
+      gsap.to(cursorPos, {
+        x: ACP.x / 2,
+        y: ACP.y / 2,
+        duration: 0.5,
+        onUpdate: () => {
+          setCursorPos({
+            x: gsap.getProperty(cursorPos, "x"),
+            y: gsap.getProperty(cursorPos, "y"),
+          });
+        },
       });
+
+      gsap.to(polygonPos, {
+        x: ACP.x / 4,
+        y: ACP.y / 4,
+        duration: 0.5,
+        onUpdate: () => {
+          setPolygonPos({
+            x: gsap.getProperty(polygonPos, "x"),
+            y: gsap.getProperty(polygonPos, "y"),
+          });
+        },
+      });
+    };
+
+    updatePositions();
+  }, [ACP]);
+  useEffect(() => {
+    // const updateMousePosition = (event) => {
+    //   const heroSection = document
+    //     .querySelector("body")
+    //     .getBoundingClientRect();
+    //   const newRelX = event.clientX - heroSection.left;
+    //   const newRelY = event.clientY - heroSection.top;
+    //   setRelX(newRelX);
+    //   setRelY(newRelY);
+
+    //   gsap.to(".custom-cursor", {
+    //     duration: 0.1,
+    //     left: `${newRelX}px`,
+    //     top: `${newRelY}px`,
+    //     ease: "sine.out",
+    //   });
+    // };
+    const updateMousePosition = (event) => {
+      setACP({ x: event.clientX, y: event.clientY });
     };
     window.addEventListener("mousemove", updateMousePosition);
     return () => window.removeEventListener("mousemove", updateMousePosition);
@@ -129,8 +164,8 @@ const HeroSection2 = () => {
           display: "flex",
           alignItems: "center",
           position: "absolute",
-          top: "20px",
-          left: "20px",
+          top: "47px",
+          left: "70px",
           zIndex: 1000, // Ensure it stays above other elements
         }}
       >
@@ -138,27 +173,17 @@ const HeroSection2 = () => {
           src={Icon}
           alt="Top Left Icon"
           style={{
-            width: "56px", // Adjust size as needed
-            height: "47px",
+            width: "314.84px", // Adjust size as needed
+            height: "51.86px",
           }}
         />
-        <span
-          style={{
-            marginLeft: "8px", // Space between icon and text
-
-            color: "#E2CAA2",
-            fontSize: "1.2rem",
-          }}
-        >
-          E - D - A
-        </span>
       </div>
       <div
         className="language-selector"
         style={{
           position: "absolute",
-          top: "20px",
-          right: "20px",
+          top: "47px",
+          right: "50px",
           display: "flex",
           gap: "20px",
           zIndex: 1000,
@@ -219,7 +244,7 @@ const HeroSection2 = () => {
           </span>
         ))}
       </div>
-      
+
       <img
         src={VisionImage}
         alt="Vision Image"
@@ -316,15 +341,15 @@ const HeroSection2 = () => {
           topRightY={0}
           bottomLeftX={0}
           bottomLeftY={window.innerHeight * 0.9}
-          bottomRightX={relX + 200}
-          bottomRightY={relY + 200}
+          bottomRightX={cursorPos.x * 2}
+          bottomRightY={cursorPos.y * 2}
           imageSrc={require("../assets/colortext.png")}
         />
 
         <DynamicPolygon //right
           fill="url(#right)" // Apply gradient2
-          topLeftX={relX + 200}
-          topLeftY={relY + 200}
+          topLeftX={cursorPos.x * 2}
+          topLeftY={cursorPos.y * 2}
           topRightX={window.innerWidth - 0}
           topRightY={150}
           bottomLeftX={window.innerWidth - 250}
@@ -341,8 +366,8 @@ const HeroSection2 = () => {
           topRightY={150}
           bottomLeftX={150}
           bottomLeftY={0}
-          bottomRightX={relX + 200}
-          bottomRightY={relY + 200}
+          bottomRightX={cursorPos.x * 2}
+          bottomRightY={cursorPos.y * 2}
           imageSrc={require("../assets/outlinetext.png")}
         />
 
@@ -350,8 +375,8 @@ const HeroSection2 = () => {
           fill="url(#bottom)" // Apply gradient3
           topLeftX={0}
           topLeftY={window.innerHeight * 0.9}
-          topRightX={relX + 200}
-          topRightY={relY + 200}
+          topRightX={cursorPos.x * 2}
+          topRightY={cursorPos.y * 2}
           bottomLeftX={0}
           bottomLeftY={window.innerHeight * 1}
           bottomRightX={window.innerWidth - 250}
@@ -368,8 +393,8 @@ const HeroSection2 = () => {
         className="custom-cursor"
         sx={{
           ...style.customCursor,
-          left: `${relX}px`,
-          top: `${relY}px`,
+          left: `${cursorPos.x}px`,
+          top: `${cursorPos.y + 200}px`,
         }}
       />
     </Box>
