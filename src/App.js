@@ -6,6 +6,7 @@ import Datenschutz from "./menu_pages/Datenschutz";
 import Impressum from "./menu_pages/Impressum";
 import Work from "./components/shared/Work";
 import AnimatedCursor from "react-animated-cursor";
+import CookieBannerComponent from "./components/shared/CookieBanner";
 const App = () => {
   return (
     <BrowserRouter>
@@ -16,7 +17,8 @@ const App = () => {
         <Route path="work/Impressum" element={<Impressum />} />
       </Routes>
       <Work />
-      <AnimatedCursor
+      <CookieBannerComponent />
+      {/* <AnimatedCursor
         innerSize={4}
         outerSize={30}
         innerScale={1}
@@ -31,7 +33,7 @@ const App = () => {
           border: "2px solid #E2CAA2",
         }}
         trailingSpeed={30}
-      />
+      /> */}
     </BrowserRouter>
   );
 };
