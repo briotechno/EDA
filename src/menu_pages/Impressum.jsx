@@ -1,13 +1,17 @@
 import { Box, Typography } from "@mui/material";
 import Icon from "../assets/logo.png";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Impressum = () => {
-  const [selectedLanguage, setSelectedLanguage] = useState("DE");
-  const [selectedWork, setSelectedWork] = useState(""); // Default selected
-  const navigate = useNavigate(); // I
-  const [hoveringText, setHoveringText] = useState(false);
+   
+  const navigate = useNavigate();
+ 
+
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <Box
@@ -58,7 +62,9 @@ const Impressum = () => {
           fontFamily: "Lato",
         }}
       >
-        <Box sx={{ display: "flex", flexDirection: "column", gap: "20px", mt: -5 }}>
+        <Box
+          sx={{ display: "flex", flexDirection: "column", gap: "20px", mt: -5 }}
+        >
           <Typography fontSize={"35px"} color="#E2CAA2" fontWeight={"bold"}>
             IMPRESSUM
           </Typography>
@@ -170,49 +176,7 @@ const Impressum = () => {
           </Box>
         </Box>
       </Box>
-      <div
-        className="language-selector2"
-        style={{
-          width: "100%", 
-          justifyContent:'flex-end',
-          position: "fixed", // Fixed position
-          bottom: "0", // Align to the bottom of the viewport
-          right: "0", // Align to the right of the viewport
-          padding: "20px", // Add some padding for spacing
-          display: "flex",
-          gap: "30px", // Space between language options
-          zIndex: 1000, // Ensure it stays above other elements
-          backgroundColor: "#073845", // Optional: Add a background color if needed
-          color: "#E2CAA2", // Text color
-          fontSize: "16px", // Font size
-          fontWeight: 300, // Font weight
-        }}
-      >
-        {["IMPRESSUM", "AGB", "DATENSCHUTZ"].map((lang) => (
-          <span
-            key={lang}
-            onMouseEnter={() => setHoveringText(true)} // Set hover state
-            onMouseLeave={() => setHoveringText(false)} // Reset hover state
-            onClick={() => {
-              setSelectedWork(lang); // Update selected language
-              if (lang === "DATENSCHUTZ") {
-                navigate("/Datenschutz"); // Navigate to /DATENSCHUTZ
-              } else if (lang === "AGB") {
-                navigate("/AGB"); // Navigate to /AGB
-              } else if (lang === "IMPRESSUM") {
-                navigate("/Impressum"); // Navigate to /Impressum
-              }
-            }}
-            style={{
-              cursor: "pointer",
-              fontWeight: selectedWork === lang ? "bold" : "300",
-            }}
-          >
-            {lang}
-          </span>
-        ))}
-      </div>
-
+   
     </Box>
   );
 };

@@ -64,7 +64,7 @@ const DynamicPolygon = ({
           x="26%"
           y="31.5%"
           transform="translate(-50%, -50%)"
-          width="50%"
+          width="60%"
           height="40%"
         />
       )}
@@ -75,12 +75,37 @@ const DynamicPolygon = ({
   );
 };
 
-const HeroSection2 = () => {
+const SmallView = () => {
   const [ACP, setACP] = useState({ x: 600, y: 300 });
   const [cursorPos, setCursorPos] = useState({ x: 300, y: 150 });
   const [polygonPos, setPolygonPos] = useState({ x: 150, y: 75 });
   const [selectedLanguage, setSelectedLanguage] = useState("DE");
+  const [selectedWork, setSelectedWork] = useState(""); // Default selected language
   const [hoveringText, setHoveringText] = useState(false);
+  const isXs = useMediaQuery({ query: "(max-width: 576px)" });
+  const isSm = useMediaQuery({
+    query: "(min-width: 577px) and (max-width: 768px)",
+  });
+  const isMd = useMediaQuery({
+    query: "(min-width: 769px) and (max-width: 1024px)",
+  });
+  const isLg = useMediaQuery({
+    query: "(min-width: 1025px) and (max-width: 1200px)",
+  });
+  const isXl = useMediaQuery({ query: "(min-width: 1201px)" });
+
+  // Define x and y based on screen size
+  const x = isXs ? "22%" : "32%";
+  const y = isXs ? "20%" : "30%";
+
+  const ix = isXs ? "60%" : "40%";
+  const iy = isXs ? "65%" : "45%";
+
+  const vx = isXl ? "18%" : "28%";
+  const vy = isXl ? "18%" : "28%";
+
+  const px = isXl ? "42%" : "38%";
+  const py = isXl ? "20%" : "32%";
   const navigate = useNavigate(); // I
   //todo--------------mediaQuery for mobile------------------------
   const isMobile = useMediaQuery({
@@ -172,8 +197,8 @@ const HeroSection2 = () => {
           src={Icon}
           alt="Top Left Icon"
           style={{
-            width: "300px", // Adjust size as needed
-            height: "50px",
+            width: "180px", // Adjust size as needed
+            height: "30px",
           }}
         />
       </div>
@@ -181,13 +206,13 @@ const HeroSection2 = () => {
         className="language-selector"
         style={{
           position: "absolute",
-          top: "25px",
-          right: "25px",
+          top: "20px",
+          right: "20px",
           display: "flex",
-          gap: "25px",
+          gap: "20px",
           zIndex: 1000,
           color: "#E2CAA2",
-          fontSize: "16px",
+          fontSize: "10px",
         }}
       >
         {["DE", "EN", "AR"].map((lang) => (
@@ -198,23 +223,69 @@ const HeroSection2 = () => {
             onClick={() => setSelectedLanguage(lang)}
             style={{
               cursor: "pointer",
-              fontWeight: selectedLanguage === lang ? "bold" : "300",
+              fontWeight: selectedLanguage === lang ? "bold" : "normal",
             }}
           >
             {lang}
           </span>
         ))}
       </div>
+      {/* <div
+        className="language-selector2"
+        style={{
+          position: "absolute",
+          bottom: "30px", // Position it at the bottom
+          right: "20px", // Position it at the right
+          display: "flex",
+          gap: "30px", // Space between language options
+          zIndex: 1000,
+          color: "#E2CAA2",
+          fontSize: "12px",
+          ...(window.innerWidth < 800
+            ? {
+                left: "50%",
+                bottom: "4%",
+                fontSize: "14px",
+                transform: "translateX(-50%)", // Center align it horizontally
+                right: "auto", // Reset the right positioning
+              }
+            : {}),
+        }}
+      >
+        {["IMPRESSUM", "AGB", "DATENSCHUTZ"].map((lang) => (
+          <span
+            key={lang}
+            onMouseEnter={() => setHoveringText(true)} // Set hover state
+            onMouseLeave={() => setHoveringText(false)} // Reset hover state
+            onClick={() => {
+              setSelectedWork(lang); // Update selected language
+              if (lang === "DATENSCHUTZ") {
+                navigate("/Datenschutz"); // Navigate to /DATENSCHUTZ
+              } else if (lang === "AGB") {
+                navigate("/AGB"); // Navigate to /AGB
+              } else if (lang === "IMPRESSUM") {
+                navigate("/Impressum"); // Navigate to /Impressum
+              }
+            }}
+            style={{
+              cursor: "pointer",
+              fontWeight: selectedWork === lang ? "bold" : "300",
+            }}
+          >
+            {lang}
+          </span>
+        ))}
+      </div> */}
 
       <img
         src={VisionImage}
         alt="Vision Image"
         style={{
           position: "absolute",
-          top: "calc(50% - 70px)", // Adjust position as needed
+          top: window.innerWidth < 500 ? "calc(48%)" : "calc(50% - 5%)", // Adjust position as needed
           left: "52%",
           transform: "translateX(-50%)",
-          width: "8%", // Adjust size as needed
+          width: window.innerWidth < 500 ? "10%" : "8%", // Adjust size as needed
           zIndex: 500,
         }}
       />
@@ -390,4 +461,4 @@ const style = {
   },
 };
 
-export default HeroSection2;
+export default SmallView;
