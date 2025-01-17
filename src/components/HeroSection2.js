@@ -350,14 +350,14 @@ const HeroSection2 = () => {
 
       {/* Text with filled color */}
 
-      <Box
+      {/* <Box
         className="custom-cursor"
         sx={{
           ...style.customCursor,
-          left: `${cursorPos.x}px`,
+          left: `${cursorPos.x-100}px`,
           top: `${cursorPos.y + 200}px`,
         }}
-      />
+      /> */}
     </Box>
   );
 };
