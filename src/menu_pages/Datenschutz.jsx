@@ -20,7 +20,8 @@ const Datenschutz = () => {
           margin: "auto",
           backgroundColor: "#073845",
           padding: "2% 10%",
-          mb: 5, // Adds 10% padding on the left and right
+          mb: 5,
+          wordBreak:'break-all' // Adds 10% padding on the left and right
         }}
       >
         <header

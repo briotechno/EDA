@@ -421,14 +421,14 @@ const SmallView = () => {
 
       {/* Text with filled color */}
 
-      <Box
+      {/* <Box
         className="custom-cursor"
         sx={{
           ...style.customCursor,
           left: `${cursorPos.x}px`,
           top: `${cursorPos.y + 200}px`,
         }}
-      />
+      /> */}
     </Box>
   );
 };

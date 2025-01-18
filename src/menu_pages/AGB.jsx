@@ -112,7 +112,7 @@ const AGB = () => {
           }}
         >
           <Box sx={{ display: "flex", gap: "20px", flexDirection: "column" }}>
-            <Typography fontSize={"35px"} color="#E2CAA2" fontWeight={"bold"}>
+            <Typography fontSize={"35px"} color="#E2CAA2" fontWeight={"bold"} sx={{wordBreak:'break-word'}}>
               ALLGEMEINE EINKAUFSBEDINGUNGEN (AEB)
             </Typography>
             <Typography variant="body1" sx={{ fontSize: "18px", mt: 3, mb: 3 }}>

@@ -76,6 +76,7 @@ const Impressum = () => {
             flexDirection: "row",
             gap: "30px",
             mt: 3,
+            flexFlow:'wrap'
           }}
         >
           {/* First Column */}
