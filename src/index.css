@@ -31,3 +31,18 @@ code {
   border: unset !important;
   padding: 10px !important;
 }
+.react-cookie-law-save-btn{
+  background-color: #0A5D8F !important;
+  border-radius: 10px !important;
+  border: unset !important;
+  padding: 10px !important;
+}
+.react-cookie-law-option-wrapper label{
+  color: black !important;
+}
+.react-cookie-law-option-checkbox{
+  top: 0px !important;
+    left: -4px !important;
+    width: 18px !important;
+    height: 18px !important;
+}
