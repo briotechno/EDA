@@ -11,3 +11,23 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.react-cookie-law-dialog{
+ bottom:0px !important;
+ top: unset !important;
+ background-color: #E2CAA2 !important;
+}
+.react-cookie-law-msg{
+  font-size: 13pt !important;
+}
+.react-cookie-law-manage-btn{
+  background-color: #0A5D8F !important;
+  border-radius: 10px !important;
+  border: unset !important;
+  padding: 10px !important;
+}
+.react-cookie-law-accept-btn{
+  background-color: #0A5D8F !important;
+  border-radius: 10px !important;
+  border: unset !important;
+  padding: 10px !important;
+}

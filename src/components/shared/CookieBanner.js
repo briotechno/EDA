@@ -28,6 +28,7 @@ const CookieBannerComponent = () => (
       // Handle marketing acceptance logic here
       console.log("Marketing cookies accepted");
     }}
+    className="banner-cookie"
   />
 );
 

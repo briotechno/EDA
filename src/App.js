@@ -7,7 +7,10 @@ import Impressum from "./menu_pages/Impressum";
 import Work from "./components/shared/Work";
 import AnimatedCursor from "react-animated-cursor";
 import CookieBannerComponent from "./components/shared/CookieBanner";
+import WorkSmall from "./components/shared/WorkSmall";
+import { useMediaQuery } from "react-responsive";
 const App = () => {
+  const isSmallScreen = useMediaQuery({ maxWidth: 820 });
   return (
     <BrowserRouter>
       <Routes>
@@ -17,7 +20,7 @@ const App = () => {
         <Route path="work/Impressum" element={<Impressum />} />
       </Routes>
       <CookieBannerComponent />
-      <Work />
+      {isSmallScreen?<WorkSmall/>:<Work />}
       <AnimatedCursor
         innerSize={4}
         outerSize={30}
