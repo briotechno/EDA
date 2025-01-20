@@ -11,16 +11,7 @@ const Home = () => {
     <div>
      
       {isSmallScreen ? <SmallView/> : <HeroSection2 />}
-      <CookieConsent
-        location="bottom"
-        buttonText="Akzeptieren"
-        cookieName="EDA "
-        style={{ background: "#040F16", zIndex: 1111 }}
-        buttonStyle={{ background: "#E2CAA2", fontSize: "16px" }}
-        expires={150}
-      >
-        Diese Website verwendet Cookies, um die Benutzererfahrung zu verbessern.{" "}
-      </CookieConsent>
+      
     </div>
   );
 };
