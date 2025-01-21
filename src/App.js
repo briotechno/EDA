@@ -23,7 +23,7 @@ const App = () => {
       {isSmallScreen?<WorkSmall/>:<Work />}
       <AnimatedCursor
         innerSize={4}
-        outerSize={25}
+        outerSize={22}
         innerScale={1}
         outerScale={1}
         outerAlpha={0}

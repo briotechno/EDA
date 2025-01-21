@@ -146,7 +146,7 @@ const Impressum = () => {
               fontSize={isSmallScreen && "20px"}
               component="h2"
               gutterBottom
-              fontSize={isSmallScreen && 20}
+            
               sx={{ fontWeight: "bold" }}
             >
               EDA Baumanagement GmbH
