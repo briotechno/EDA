@@ -30,10 +30,10 @@ const WorkSmall = () => {
       style={{
         width: "100%",
         justifyContent: "center",
-        position: "fixed",
+       position:'fixed',
         bottom: "0",
         right: "0",
-        height:'60px',
+        height: "60px",
         display: "flex",
         gap: "30px",
         zIndex: 1000,
@@ -41,7 +41,7 @@ const WorkSmall = () => {
         color: "#E2CAA2",
         fontSize: "16px",
         fontWeight: 300,
-        alignItems:'center'
+        alignItems: "center",
       }}
     >
       {["IMPRESSUM", "AGB", "DATENSCHUTZ"].map((work, index) => (

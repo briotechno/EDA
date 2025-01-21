@@ -17,6 +17,7 @@ import COC from "../pdfs/COC.pdf";
 import AEB from "../pdfs/AEB.pdf";
 import AABD from "../pdfs/AABD.pdf";
 import LIEF from "../pdfs/LIEF.pdf";
+import { useMediaQuery } from "react-responsive";
 
 const AGB = () => {
   const [selectedWork, setSelectedWork] = useState(""); // Default selected
@@ -60,6 +61,7 @@ const AGB = () => {
       link: LEAN,
     },
   ];
+  const isSmallScreen = useMediaQuery({ maxWidth: 820 });
   return (
     <>
       <Box
@@ -79,7 +81,7 @@ const AGB = () => {
             top: 0, // Align it to the top
             left: 0,
             zIndex: 1000, // Ensure it stays above all other elements
-            padding: "10px 20px", // Add padding for better spacing
+            padding: "30px 20px", // Add padding for better spacing
             display: "flex",
             alignItems: "center",
             justifyContent: "flex-start", // Align the logo to the right
@@ -95,8 +97,8 @@ const AGB = () => {
               src={Icon}
               alt="Header Logo"
               style={{
-                width: "314.84px", // Adjust size as needed
-                height: "51.86px",
+                width: isSmallScreen ? "250px" : "300px", // Adjust size as needed
+                height: isSmallScreen ? "40px" : "50px",
               }}
             />
           </div>
@@ -108,11 +110,16 @@ const AGB = () => {
             flexDirection: "column",
             color: "#E2CAA2",
             fontFamily: "Lato",
-            mt: 10,
+            mt: isSmallScreen ? 12 : 10,
           }}
         >
           <Box sx={{ display: "flex", gap: "20px", flexDirection: "column" }}>
-            <Typography fontSize={"35px"} color="#E2CAA2" fontWeight={"bold"} sx={{wordBreak:'break-word'}}>
+            <Typography
+              fontSize={isSmallScreen ? "18px" : "35px"}
+              color="#E2CAA2"
+              fontWeight={"bold"}
+              // sx={{ wordBreak: "break-word" }}
+            >
               ALLGEMEINE EINKAUFSBEDINGUNGEN (AEB)
             </Typography>
             <Typography variant="body1" sx={{ fontSize: "18px", mt: 3, mb: 3 }}>
@@ -140,6 +147,7 @@ const AGB = () => {
           <Box sx={{ mb: 3 }}>
             <Typography
               variant="h5"
+              fontSize={isSmallScreen && "20px"}
               component="h2"
               gutterBottom
               sx={{ fontWeight: "bold" }}
@@ -165,6 +173,7 @@ const AGB = () => {
           <Box sx={{ mb: 3 }}>
             <Typography
               variant="h5"
+              fontSize={isSmallScreen && "20px"}
               component="h2"
               gutterBottom
               sx={{ fontWeight: "bold" }}
@@ -241,6 +250,7 @@ const AGB = () => {
           <Box sx={{ mb: 3 }}>
             <Typography
               variant="h5"
+              fontSize={isSmallScreen && "20px"}
               component="h2"
               gutterBottom
               sx={{ fontWeight: "bold" }}
@@ -440,6 +450,7 @@ const AGB = () => {
           <Box sx={{ mb: 3 }}>
             <Typography
               variant="h5"
+              fontSize={isSmallScreen && "20px"}
               component="h2"
               gutterBottom
               sx={{ fontWeight: "bold" }}
@@ -521,6 +532,7 @@ const AGB = () => {
           <Box sx={{ mb: 3 }}>
             <Typography
               variant="h5"
+              fontSize={isSmallScreen && "20px"}
               component="h2"
               gutterBottom
               sx={{ fontWeight: "bold" }}
@@ -604,6 +616,7 @@ const AGB = () => {
           <Box sx={{ mb: 3 }}>
             <Typography
               variant="h5"
+              fontSize={isSmallScreen && "20px"}
               component="h2"
               gutterBottom
               sx={{ fontWeight: "bold" }}
@@ -748,6 +761,7 @@ const AGB = () => {
           <Box sx={{ mb: 3 }}>
             <Typography
               variant="h5"
+              fontSize={isSmallScreen && "20px"}
               component="h2"
               gutterBottom
               sx={{ fontWeight: "bold" }}
@@ -781,6 +795,7 @@ const AGB = () => {
           <Box sx={{ mb: 3 }}>
             <Typography
               variant="h5"
+              fontSize={isSmallScreen && "20px"}
               component="h2"
               gutterBottom
               sx={{ fontWeight: "bold" }}
@@ -801,6 +816,7 @@ const AGB = () => {
           <Box sx={{ mb: 3 }}>
             <Typography
               variant="h5"
+              fontSize={isSmallScreen && "20px"}
               component="h2"
               gutterBottom
               sx={{ fontWeight: "bold" }}
@@ -1049,6 +1065,7 @@ const AGB = () => {
           <Box sx={{ mb: 3 }}>
             <Typography
               variant="h5"
+              fontSize={isSmallScreen && "20px"}
               component="h2"
               gutterBottom
               sx={{ fontWeight: "bold" }}
@@ -1143,6 +1160,7 @@ const AGB = () => {
           <Box sx={{ mb: 3 }}>
             <Typography
               variant="h5"
+              fontSize={isSmallScreen && "20px"}
               component="h2"
               gutterBottom
               sx={{ fontWeight: "bold" }}
@@ -1175,6 +1193,7 @@ const AGB = () => {
           <Box sx={{ mb: 3 }}>
             <Typography
               variant="h5"
+              fontSize={isSmallScreen && "20px"}
               component="h2"
               gutterBottom
               sx={{ fontWeight: "bold" }}
@@ -1301,6 +1320,7 @@ const AGB = () => {
           <Box sx={{ mb: 3 }}>
             <Typography
               variant="h5"
+              fontSize={isSmallScreen && "20px"}
               component="h2"
               gutterBottom
               sx={{ fontWeight: "bold" }}

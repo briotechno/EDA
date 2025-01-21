@@ -76,7 +76,7 @@ const DynamicPolygon = ({
 };
 
 const HeroSection2 = () => {
-  const [ACP, setACP] = useState({ x: 600, y: 300 });
+  const [ACP, setACP] = useState({ x: 1600, y: 530 });
   const [cursorPos, setCursorPos] = useState({ x: 300, y: 150 });
   const [polygonPos, setPolygonPos] = useState({ x: 150, y: 75 });
   const [selectedLanguage, setSelectedLanguage] = useState("DE");

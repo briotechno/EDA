@@ -3,11 +3,11 @@ import { Box, Typography } from "@mui/material";
 import Icon from "../assets/logo.png";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useMediaQuery } from "react-responsive";
 
 const Datenschutz = () => {
- 
   const navigate = useNavigate(); // I
- 
+  const isSmallScreen = useMediaQuery({ maxWidth: 820 });
   useEffect(() => {
     // Scroll to the top of the page when the component loads
     window.scrollTo(0, 0);
@@ -21,7 +21,7 @@ const Datenschutz = () => {
           backgroundColor: "#073845",
           padding: "2% 10%",
           mb: 5,
-          wordBreak:'break-all' // Adds 10% padding on the left and right
+          wordBreak: "break-all", // Adds 10% padding on the left and right
         }}
       >
         <header
@@ -32,7 +32,7 @@ const Datenschutz = () => {
             top: 0, // Align it to the top
             left: 0,
             zIndex: 1000, // Ensure it stays above all other elements
-            padding: "10px 20px", // Add padding for better spacing
+            padding: "30px 20px", // Add padding for better spacing
             display: "flex",
             alignItems: "center",
             justifyContent: "flex-start", // Align the logo to the right
@@ -48,8 +48,8 @@ const Datenschutz = () => {
               src={Icon}
               alt="Header Logo"
               style={{
-                width: "314.84px", // Adjust size as needed
-                height: "51.86px",
+                width: isSmallScreen ? "250px" : "300px", // Adjust size as needed
+                height: isSmallScreen ? "40px" : "50px",
               }}
             />
           </div>
@@ -61,14 +61,14 @@ const Datenschutz = () => {
             flexDirection: "column",
             color: "#E2CAA2",
             fontFamily: "Lato",
-            mt: 10,
+            mt:isSmallScreen?11:10,
           }}
         >
           <Box sx={{ display: "flex", gap: "20px", flexDirection: "column" }}>
             <Typography fontSize={"35px"} color="#E2CAA2" fontWeight={"bold"}>
               Datenschutz
             </Typography>
-            <Typography fontSize={"25px"} color="#E2CAA2" fontWeight={"bold"}>
+            <Typography fontSize={isSmallScreen?"18px":"25px"} color="#E2CAA2" fontWeight={"bold"}>
               Datenschutzinformation nach der DS-GVO
             </Typography>
           </Box>
@@ -76,6 +76,7 @@ const Datenschutz = () => {
             <Box sx={{ mb: 3 }}>
               <Typography
                 variant="h5"
+                fontSize={isSmallScreen&&"20px"}
                 component="h2"
                 gutterBottom
                 sx={{ fontWeight: "bold" }}
@@ -103,6 +104,7 @@ const Datenschutz = () => {
             <Box sx={{ mb: 3 }}>
               <Typography
                 variant="h5"
+                fontSize={isSmallScreen&&"20px"}
                 component="h2"
                 gutterBottom
                 sx={{ fontWeight: "bold" }}
@@ -152,6 +154,7 @@ const Datenschutz = () => {
             <Box sx={{ mb: 3 }}>
               <Typography
                 variant="h5"
+                fontSize={isSmallScreen&&"20px"}
                 component="h2"
                 gutterBottom
                 sx={{ fontWeight: "bold" }}
@@ -184,6 +187,7 @@ const Datenschutz = () => {
             <Box sx={{ mb: 3 }}>
               <Typography
                 variant="h5"
+                fontSize={isSmallScreen&&"20px"}
                 component="h2"
                 gutterBottom
                 sx={{ fontWeight: "bold" }}
@@ -227,6 +231,7 @@ const Datenschutz = () => {
             <Box sx={{ mb: 3 }}>
               <Typography
                 variant="h5"
+                fontSize={isSmallScreen&&"20px"}
                 component="h2"
                 gutterBottom
                 sx={{ fontWeight: "bold" }}
@@ -246,6 +251,7 @@ const Datenschutz = () => {
             <Box sx={{ mb: 3 }}>
               <Typography
                 variant="h5"
+                fontSize={isSmallScreen&&"20px"}
                 component="h2"
                 gutterBottom
                 sx={{ fontWeight: "bold" }}
@@ -278,6 +284,7 @@ const Datenschutz = () => {
             <Box sx={{ mb: 3 }}>
               <Typography
                 variant="h5"
+                fontSize={isSmallScreen&&"20px"}
                 component="h2"
                 gutterBottom
                 sx={{ fontWeight: "bold" }}
@@ -405,6 +412,7 @@ const Datenschutz = () => {
               <Box sx={{ mb: 3 }}>
                 <Typography
                   variant="h5"
+                  fontSize={isSmallScreen&&"20px"}
                   component="h2"
                   gutterBottom
                   sx={{ fontWeight: "bold" }}
@@ -705,6 +713,7 @@ const Datenschutz = () => {
             <Box sx={{ mb: 3 }}>
               <Typography
                 variant="h5"
+                fontSize={isSmallScreen&&"20px"}
                 component="h2"
                 gutterBottom
                 sx={{ fontWeight: "bold" }}
@@ -747,6 +756,7 @@ const Datenschutz = () => {
             <Box sx={{ mb: 3 }}>
               <Typography
                 variant="h5"
+                fontSize={isSmallScreen&&"20px"}
                 component="h2"
                 gutterBottom
                 sx={{ fontWeight: "bold" }}
@@ -798,6 +808,7 @@ const Datenschutz = () => {
             <Box sx={{ mb: 3 }}>
               <Typography
                 variant="h5"
+                fontSize={isSmallScreen&&"20px"}
                 component="h2"
                 gutterBottom
                 sx={{ fontWeight: "bold" }}
@@ -1127,6 +1138,7 @@ const Datenschutz = () => {
             <Box sx={{ mb: 3 }}>
               <Typography
                 variant="h5"
+                fontSize={isSmallScreen&&"20px"}
                 component="h2"
                 gutterBottom
                 sx={{ fontWeight: "bold" }}
@@ -1150,6 +1162,7 @@ const Datenschutz = () => {
             <Box sx={{ mb: 3 }}>
               <Typography
                 variant="h5"
+                fontSize={isSmallScreen&&"20px"}
                 component="h2"
                 gutterBottom
                 sx={{ fontWeight: "bold" }}
@@ -1179,6 +1192,7 @@ const Datenschutz = () => {
             <Box sx={{ mb: 3 }}>
               <Typography
                 variant="h5"
+                fontSize={isSmallScreen&&"20px"}
                 component="h2"
                 gutterBottom
                 sx={{ fontWeight: "bold" }}
@@ -1201,6 +1215,7 @@ const Datenschutz = () => {
             <Box sx={{ mb: 3 }}>
               <Typography
                 variant="h5"
+                fontSize={isSmallScreen&&"20px"}
                 component="h2"
                 gutterBottom
                 sx={{ fontWeight: "bold" }}
@@ -1225,6 +1240,7 @@ const Datenschutz = () => {
             <Box sx={{ mb: 3 }}>
               <Typography
                 variant="h5"
+                fontSize={isSmallScreen&&"20px"}
                 component="h2"
                 gutterBottom
                 sx={{ fontWeight: "bold" }}
@@ -1462,6 +1478,7 @@ const Datenschutz = () => {
             <Box sx={{ mb: 3 }}>
               <Typography
                 variant="h5"
+                fontSize={isSmallScreen&&"20px"}
                 component="h2"
                 gutterBottom
                 sx={{ fontWeight: "bold" }}
@@ -1494,6 +1511,7 @@ const Datenschutz = () => {
             <Box sx={{ mb: 3 }}>
               <Typography
                 variant="h5"
+                fontSize={isSmallScreen&&"20px"}
                 component="h2"
                 gutterBottom
                 sx={{ fontWeight: "bold" }}
@@ -1566,6 +1584,7 @@ const Datenschutz = () => {
             <Box sx={{ mb: 3 }}>
               <Typography
                 variant="h5"
+                fontSize={isSmallScreen&&"20px"}
                 component="h2"
                 gutterBottom
                 sx={{ fontWeight: "bold" }}
@@ -1682,9 +1701,10 @@ const Datenschutz = () => {
             <Box sx={{ mb: 3 }}>
               <Typography
                 variant="h6"
-                component="h2"
+                component={"h2"}
                 gutterBottom
                 sx={{ fontWeight: "bold" }}
+                fontSize={isSmallScreen&&"17px"}
               >
                 (e) Recht auf Datenübertragbarkeit
               </Typography>
@@ -1705,6 +1725,7 @@ const Datenschutz = () => {
             <Box sx={{ mb: 3 }}>
               <Typography
                 variant="h5"
+                fontSize={isSmallScreen&&"20px"}
                 component="h2"
                 gutterBottom
                 sx={{ fontWeight: "bold" }}
@@ -1725,12 +1746,13 @@ const Datenschutz = () => {
                 ohne Angabe einer besonderen Situation von uns umgesetzt wird.
                 Um Ihr Widerspruchsrecht geltend zu machen schreiben Sie bitte
                 an den Datenschutzbeauftragten oder senden Sie eine E-Mail an
-                privacy@max-boegl.de.
+                info@eda-baumanagement.com
               </Typography>
             </Box>
             <Box sx={{ mb: 3 }}>
               <Typography
                 variant="h5"
+                fontSize={isSmallScreen&&"20px"}
                 component="h2"
                 gutterBottom
                 sx={{ fontWeight: "bold" }}
@@ -1770,6 +1792,7 @@ const Datenschutz = () => {
             <Box sx={{ mb: 3 }}>
               <Typography
                 variant="h5"
+                fontSize={isSmallScreen&&"20px"}
                 component="h2"
                 gutterBottom
                 sx={{ fontWeight: "bold" }}
@@ -1798,13 +1821,12 @@ const Datenschutz = () => {
                   {" "}
                   https://www.bfdi.bund.de/DE/Infothek/Anschriften_Links/anschriften_links-node.html
                 </a>
-                <br /> <br /> Stand: 15.11.2023
+                <br /> <br /> Stand: 01.01.2025
               </Typography>
             </Box>
           </Box>
         </Box>
       </Box>
-     
     </>
   );
 };

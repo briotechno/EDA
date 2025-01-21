@@ -6,7 +6,7 @@ import { useMediaQuery } from "react-responsive";
 
 const HeroSection = () => {
   const [relX, setRelX] = useState(50); // Initial X position
-  const [relY, setRelY] = useState(300);
+  const [relY, setRelY] = useState(200);
   const navigate = useNavigate(); 
   const [fonttSize, setFontSize] = useState("12px");
   const [selectedLanguage, setSelectedLanguage] = useState("EN");

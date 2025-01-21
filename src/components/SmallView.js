@@ -76,7 +76,7 @@ const DynamicPolygon = ({
 };
 
 const SmallView = () => {
-  const [ACP, setACP] = useState({ x: 600, y: 300 });
+  const [ACP, setACP] = useState({ x: 250, y: 320 });
   const [cursorPos, setCursorPos] = useState({ x: 300, y: 150 });
   const [polygonPos, setPolygonPos] = useState({ x: 150, y: 75 });
   const [selectedLanguage, setSelectedLanguage] = useState("DE");
@@ -282,10 +282,10 @@ const SmallView = () => {
         alt="Vision Image"
         style={{
           position: "absolute",
-          top: window.innerWidth < 500 ? "calc(48%)" : "calc(50% - 5%)", // Adjust position as needed
-          left: "52%",
+          top: window.innerWidth < 500 ? "calc(46%)" : "calc(50% - 5%)", // Adjust position as needed
+          left:window.innerWidth < 500 ?"55%": "52%",
           transform: "translateX(-50%)",
-          width: window.innerWidth < 500 ? "10%" : "8%", // Adjust size as needed
+          width: window.innerWidth < 500 ? "30%" : "8%", // Adjust size as needed
           zIndex: 500,
         }}
       />
